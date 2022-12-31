@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A05D312264026404271E5366 /* Pods_JSanchezEcommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD43E8199C7957640028E010 /* Pods_JSanchezEcommerce.framework */; };
+		E3219D1E295F51A700EEF1B3 /* ProductoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3219D1C295F51A700EEF1B3 /* ProductoTableViewCell.swift */; };
+		E3219D1F295F51A700EEF1B3 /* ProductoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3219D1D295F51A700EEF1B3 /* ProductoTableViewCell.xib */; };
+		E3219D21295F53D500EEF1B3 /* GetALLTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3219D20295F53D500EEF1B3 /* GetALLTableViewController.swift */; };
+		E3518082295CCFD600488241 /* Producto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3518081295CCFD600488241 /* Producto.swift */; };
+		E3518084295CCFEA00488241 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3518083295CCFEA00488241 /* Result.swift */; };
+		E3518086295CD09700488241 /* Proveedor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3518085295CD09700488241 /* Proveedor.swift */; };
+		E3518088295CD0A600488241 /* Departamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3518087295CD0A600488241 /* Departamento.swift */; };
+		E351808A295CD0B000488241 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3518089295CD0B000488241 /* Area.swift */; };
+		E351808C295CD44B00488241 /* ProductoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E351808B295CD44B00488241 /* ProductoViewModel.swift */; };
 		E38D26F2295BC21400FFA829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D26F1295BC21400FFA829 /* AppDelegate.swift */; };
 		E38D26F4295BC21400FFA829 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D26F3295BC21400FFA829 /* SceneDelegate.swift */; };
 		E38D26F6295BC21400FFA829 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D26F5295BC21400FFA829 /* ViewController.swift */; };
@@ -14,9 +24,21 @@
 		E38D26FC295BC21400FFA829 /* JSanchezEcommerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E38D26FA295BC21400FFA829 /* JSanchezEcommerce.xcdatamodeld */; };
 		E38D26FE295BC21500FFA829 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E38D26FD295BC21500FFA829 /* Assets.xcassets */; };
 		E38D2701295BC21500FFA829 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E38D26FF295BC21500FFA829 /* LaunchScreen.storyboard */; };
+		E38D270D295BC2B600FFA829 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D270C295BC2B600FFA829 /* DB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65043CF4935AC8BAE7C80826 /* Pods-JSanchezEcommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSanchezEcommerce.debug.xcconfig"; path = "Target Support Files/Pods-JSanchezEcommerce/Pods-JSanchezEcommerce.debug.xcconfig"; sourceTree = "<group>"; };
+		A2AC1E2BF435A4392DEA895E /* Pods-JSanchezEcommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSanchezEcommerce.release.xcconfig"; path = "Target Support Files/Pods-JSanchezEcommerce/Pods-JSanchezEcommerce.release.xcconfig"; sourceTree = "<group>"; };
+		E3219D1C295F51A700EEF1B3 /* ProductoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoTableViewCell.swift; sourceTree = "<group>"; };
+		E3219D1D295F51A700EEF1B3 /* ProductoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductoTableViewCell.xib; sourceTree = "<group>"; };
+		E3219D20295F53D500EEF1B3 /* GetALLTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetALLTableViewController.swift; sourceTree = "<group>"; };
+		E3518081295CCFD600488241 /* Producto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producto.swift; sourceTree = "<group>"; };
+		E3518083295CCFEA00488241 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		E3518085295CD09700488241 /* Proveedor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proveedor.swift; sourceTree = "<group>"; };
+		E3518087295CD0A600488241 /* Departamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departamento.swift; sourceTree = "<group>"; };
+		E3518089295CD0B000488241 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		E351808B295CD44B00488241 /* ProductoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoViewModel.swift; sourceTree = "<group>"; };
 		E38D26EE295BC21400FFA829 /* JSanchezEcommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSanchezEcommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38D26F1295BC21400FFA829 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E38D26F3295BC21400FFA829 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +48,8 @@
 		E38D26FD295BC21500FFA829 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E38D2700295BC21500FFA829 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E38D2702295BC21500FFA829 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E38D270C295BC2B600FFA829 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		FD43E8199C7957640028E010 /* Pods_JSanchezEcommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSanchezEcommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +57,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A05D312264026404271E5366 /* Pods_JSanchezEcommerce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60E05C5047D92C41DFBADD76 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65043CF4935AC8BAE7C80826 /* Pods-JSanchezEcommerce.debug.xcconfig */,
+				A2AC1E2BF435A4392DEA895E /* Pods-JSanchezEcommerce.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D8712F5E71145AC5810E74CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD43E8199C7957640028E010 /* Pods_JSanchezEcommerce.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3219D22295F53F100EEF1B3 /* Producto */ = {
+			isa = PBXGroup;
+			children = (
+				E38D26F5295BC21400FFA829 /* ViewController.swift */,
+				E3219D20295F53D500EEF1B3 /* GetALLTableViewController.swift */,
+			);
+			path = Producto;
+			sourceTree = "<group>";
+		};
 		E38D26E5295BC21400FFA829 = {
 			isa = PBXGroup;
 			children = (
 				E38D26F0295BC21400FFA829 /* JSanchezEcommerce */,
 				E38D26EF295BC21400FFA829 /* Products */,
+				60E05C5047D92C41DFBADD76 /* Pods */,
+				D8712F5E71145AC5810E74CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +112,57 @@
 		E38D26F0295BC21400FFA829 /* JSanchezEcommerce */ = {
 			isa = PBXGroup;
 			children = (
+				E38D2708295BC22200FFA829 /* Model */,
+				E38D270A295BC24E00FFA829 /* View */,
+				E38D2709295BC23700FFA829 /* ViewModel */,
+				E38D270B295BC25C00FFA829 /* Controller */,
 				E38D26F1295BC21400FFA829 /* AppDelegate.swift */,
 				E38D26F3295BC21400FFA829 /* SceneDelegate.swift */,
-				E38D26F5295BC21400FFA829 /* ViewController.swift */,
-				E38D26F7295BC21400FFA829 /* Main.storyboard */,
 				E38D26FD295BC21500FFA829 /* Assets.xcassets */,
-				E38D26FF295BC21500FFA829 /* LaunchScreen.storyboard */,
 				E38D2702295BC21500FFA829 /* Info.plist */,
 				E38D26FA295BC21400FFA829 /* JSanchezEcommerce.xcdatamodeld */,
 			);
 			path = JSanchezEcommerce;
+			sourceTree = "<group>";
+		};
+		E38D2708295BC22200FFA829 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3518081295CCFD600488241 /* Producto.swift */,
+				E3518083295CCFEA00488241 /* Result.swift */,
+				E3518085295CD09700488241 /* Proveedor.swift */,
+				E3518087295CD0A600488241 /* Departamento.swift */,
+				E3518089295CD0B000488241 /* Area.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E38D2709295BC23700FFA829 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E3219D1C295F51A700EEF1B3 /* ProductoTableViewCell.swift */,
+				E38D270C295BC2B600FFA829 /* DB.swift */,
+				E351808B295CD44B00488241 /* ProductoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E38D270A295BC24E00FFA829 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E38D26F7295BC21400FFA829 /* Main.storyboard */,
+				E38D26FF295BC21500FFA829 /* LaunchScreen.storyboard */,
+				E3219D1D295F51A700EEF1B3 /* ProductoTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E38D270B295BC25C00FFA829 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3219D22295F53F100EEF1B3 /* Producto */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E38D2705295BC21500FFA829 /* Build configuration list for PBXNativeTarget "JSanchezEcommerce" */;
 			buildPhases = (
+				03105F2F30284E5C1F08D9D6 /* [CP] Check Pods Manifest.lock */,
 				E38D26EA295BC21400FFA829 /* Sources */,
 				E38D26EB295BC21400FFA829 /* Frameworks */,
 				E38D26EC295BC21400FFA829 /* Resources */,
+				BF8ECC7A86DBF6B14E8872FF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E38D2701295BC21500FFA829 /* LaunchScreen.storyboard in Resources */,
+				E3219D1F295F51A700EEF1B3 /* ProductoTableViewCell.xib in Resources */,
 				E38D26FE295BC21500FFA829 /* Assets.xcassets in Resources */,
 				E38D26F9295BC21400FFA829 /* Main.storyboard in Resources */,
 			);
@@ -136,14 +234,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		03105F2F30284E5C1F08D9D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JSanchezEcommerce-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF8ECC7A86DBF6B14E8872FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JSanchezEcommerce/Pods-JSanchezEcommerce-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JSanchezEcommerce/Pods-JSanchezEcommerce-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JSanchezEcommerce/Pods-JSanchezEcommerce-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E38D26EA295BC21400FFA829 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E351808A295CD0B000488241 /* Area.swift in Sources */,
+				E3518086295CD09700488241 /* Proveedor.swift in Sources */,
+				E3219D21295F53D500EEF1B3 /* GetALLTableViewController.swift in Sources */,
 				E38D26FC295BC21400FFA829 /* JSanchezEcommerce.xcdatamodeld in Sources */,
 				E38D26F6295BC21400FFA829 /* ViewController.swift in Sources */,
+				E3518088295CD0A600488241 /* Departamento.swift in Sources */,
+				E3219D1E295F51A700EEF1B3 /* ProductoTableViewCell.swift in Sources */,
 				E38D26F2295BC21400FFA829 /* AppDelegate.swift in Sources */,
+				E3518082295CCFD600488241 /* Producto.swift in Sources */,
+				E3518084295CCFEA00488241 /* Result.swift in Sources */,
+				E38D270D295BC2B600FFA829 /* DB.swift in Sources */,
+				E351808C295CD44B00488241 /* ProductoViewModel.swift in Sources */,
 				E38D26F4295BC21400FFA829 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +435,7 @@
 		};
 		E38D2706295BC21500FFA829 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65043CF4935AC8BAE7C80826 /* Pods-JSanchezEcommerce.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -313,6 +463,7 @@
 		};
 		E38D2707295BC21500FFA829 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2AC1E2BF435A4392DEA895E /* Pods-JSanchezEcommerce.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

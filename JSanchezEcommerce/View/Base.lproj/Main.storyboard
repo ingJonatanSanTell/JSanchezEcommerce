@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ll8-iG-QGC">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JSanchezEcommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgProducto" translatesAutoresizingMaskIntoConstraints="NO" id="irH-Hg-muH">
+                                <rect key="frame" x="121.66666666666669" y="118" width="150" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="HKF-ce-V5S"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWq-dF-25J">
+                                <rect key="frame" x="236.66666666666666" y="153" width="20.999999999999972" height="22"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="square.and.pencil" catalog="system"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NiW-3B-QEr">
+                                <rect key="frame" x="0.0" y="176" width="393" height="642"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="NOMBRE:" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1I8-II-k5R">
+                                        <rect key="frame" x="10" y="0.0" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="PRECIO UNITARIO: " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ite-vW-Erx">
+                                        <rect key="frame" x="10" y="77" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="STOCK:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ua9-L5-7go">
+                                        <rect key="frame" x="10" y="154" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="DESCRIPCION:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y3E-Ef-fBP">
+                                        <rect key="frame" x="10" y="231" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="ID_PROVEEDOR:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="abL-g0-BBT">
+                                        <rect key="frame" x="10" y="308" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="ID_DEPARTAMENTO:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9g-q8-hRr">
+                                        <rect key="frame" x="10" y="385" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="ID_PRODUCTO:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ODQ-vb-5jM">
+                                        <rect key="frame" x="10" y="462" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BZ4-YW-a9j">
+                                        <rect key="frame" x="121.33333333333333" y="539" width="150.66666666666669" height="103"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txB-Fg-ClF">
+                                                <rect key="frame" x="0.0" y="0.0" width="150.66666666666666" height="34.333333333333336"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title="GUARDAR" titleAlignment="center">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                                        <color key="strokeColor" systemColor="labelColor"/>
+                                                    </backgroundConfiguration>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="AddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="754-qz-T1O"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCC-x8-qhj">
+                                                <rect key="frame" x="0.0" y="34.333333333333371" width="150.66666666666666" height="34.333333333333343"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="goforward.plus" catalog="system" title="ACTUALIZAR" titleAlignment="center">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                                        <color key="strokeColor" systemColor="labelColor"/>
+                                                    </backgroundConfiguration>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="UpdateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qi5-8R-AUl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sik-Ee-fI4">
+                                                <rect key="frame" x="0.0" y="68.666666666666629" width="150.66666666666666" height="34.333333333333343"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title="ELIMINAR">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                                        <color key="strokeColor" systemColor="labelColor"/>
+                                                    </backgroundConfiguration>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="DeleteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zJz-cI-fLX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ua9-L5-7go" secondAttribute="trailing" constant="10" id="3Eg-HN-eUU"/>
+                                    <constraint firstItem="ODQ-vb-5jM" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="3mE-uL-crB"/>
+                                    <constraint firstAttribute="trailing" secondItem="abL-g0-BBT" secondAttribute="trailing" constant="10" id="58S-eD-Usm"/>
+                                    <constraint firstAttribute="trailing" secondItem="j9g-q8-hRr" secondAttribute="trailing" constant="10" id="Bux-kL-06R"/>
+                                    <constraint firstAttribute="trailing" secondItem="1I8-II-k5R" secondAttribute="trailing" constant="10" id="Evl-mJ-YbW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ite-vW-Erx" secondAttribute="trailing" constant="10" id="FnA-Y4-Ktf"/>
+                                    <constraint firstAttribute="trailing" secondItem="ODQ-vb-5jM" secondAttribute="trailing" constant="10" id="FuR-6L-rBl"/>
+                                    <constraint firstItem="Ua9-L5-7go" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="LfQ-5c-vsf"/>
+                                    <constraint firstItem="y3E-Ef-fBP" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="UR7-fN-TBv"/>
+                                    <constraint firstAttribute="trailing" secondItem="y3E-Ef-fBP" secondAttribute="trailing" constant="10" id="coV-zN-mcB"/>
+                                    <constraint firstItem="Ite-vW-Erx" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="fB0-bF-ZdF"/>
+                                    <constraint firstItem="1I8-II-k5R" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="ifL-7x-88p"/>
+                                    <constraint firstItem="j9g-q8-hRr" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="pyU-Xt-b8c"/>
+                                    <constraint firstItem="abL-g0-BBT" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="vdx-rT-NiM"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="irH-Hg-muH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0sa-Ez-eaN"/>
+                            <constraint firstItem="DWq-dF-25J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="3Aa-NJ-atu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NiW-3B-QEr" secondAttribute="bottom" id="8Ty-fp-88Z"/>
+                            <constraint firstItem="NiW-3B-QEr" firstAttribute="top" secondItem="irH-Hg-muH" secondAttribute="bottom" constant="10" id="Dsq-9I-FAc"/>
+                            <constraint firstItem="NiW-3B-QEr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wuf-JM-10M"/>
+                            <constraint firstItem="DWq-dF-25J" firstAttribute="leading" secondItem="irH-Hg-muH" secondAttribute="trailing" constant="-35" id="cB3-aV-KIQ"/>
+                            <constraint firstItem="irH-Hg-muH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-284" id="hgk-6T-9cD"/>
+                            <constraint firstItem="irH-Hg-muH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="mIM-oS-pWK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NiW-3B-QEr" secondAttribute="trailing" id="zqk-tq-wfu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rIE-QT-F6E"/>
+                    <connections>
+                        <outlet property="DescripcionTextField" destination="y3E-Ef-fBP" id="BQ6-Fv-yjs"/>
+                        <outlet property="IdDepartamentoTextField" destination="j9g-q8-hRr" id="jKQ-88-ToO"/>
+                        <outlet property="IdProductoTextField" destination="ODQ-vb-5jM" id="pTd-uO-Ky8"/>
+                        <outlet property="IdProveddorTextField" destination="abL-g0-BBT" id="Ayo-ZA-l0n"/>
+                        <outlet property="NombreTextField" destination="1I8-II-k5R" id="9tV-Gt-rAA"/>
+                        <outlet property="PrecioUnitarioTextField" destination="Ite-vW-Erx" id="Mto-5f-j9p"/>
+                        <outlet property="StockTextField" destination="Ua9-L5-7go" id="io2-H4-06b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1247" y="56"/>
+        </scene>
+        <!--GetALL Table View Controller-->
+        <scene sceneID="wzF-Tm-1KU">
+            <objects>
+                <tableViewController id="VJY-lr-I5h" customClass="GetALLTableViewController" customModule="JSanchezEcommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="rTN-Oz-ke0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="VJY-lr-I5h" id="Jki-NN-Yoy"/>
+                            <outlet property="delegate" destination="VJY-lr-I5h" id="Nna-Yf-7ea"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="isZ-iv-peL">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="77T-wJ-i6J">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wuw-D0-CD8">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="plus.app" catalog="system">
+                                    <color key="baseBackgroundColor" systemColor="systemCyanColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="NGV-Ie-VkX"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZvD-yz-Ir1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="486" y="56"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7U4-Mf-kYD">
+            <objects>
+                <navigationController id="Ll8-iG-QGC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GHX-7j-Kyq">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VJY-lr-I5h" kind="relationship" relationship="rootViewController" id="0Yo-pl-mTu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aRk-wB-SNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329" y="56"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="goforward.plus" catalog="system" width="119" height="128"/>
+        <image name="imgProducto" width="512" height="512"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="113"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
