@@ -1,25 +1,25 @@
 //
-//  GetALLTableViewController.swift
+//  GetALLUsuarioTableViewController.swift
 //  JSanchezEcommerce
 //
-//  Created by MacBookMBA4 on 30/12/22.
+//  Created by MacBookMBA4 on 05/01/23.
 //
 
 import UIKit
 import SwipeCellKit
 
-class GetALLTableViewController: UITableViewController {
+class GetALLUsuarioTableViewController: UITableViewController {
+    
+    let usuarioViewModel = UsuarioViewModel()
+    var usuarios = [User]()
+    
+    var nombre = ""
 
-    let productoViewModel = ProductoViewModel()
-    var productos = [Producto]()
-    
-    var idProducto = 0
-    
     override func viewDidLoad() {
         navigationController?.isNavigationBarHidden =  false
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "ProductoTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductoCell")
+        tableView.register(UINib(nibName: "UsuarioTableViewCell", bundle: nil), forCellReuseIdentifier: "UserCell")
         loadData()
 
         // Uncomment the following line to preserve selection between presentations
@@ -47,17 +47,19 @@ class GetALLTableViewController: UITableViewController {
     }
     
     func loadData(){
-        let result = productoViewModel.GetAll()
+        
+        let result = usuarioViewModel.GetAll()
         
         if result.Correct{
-            productos = result.Objects! as! [Producto]
+            usuarios = result.Objects! as! [User]
             tableView.reloadData()
-            
         }
         else{
-            //alerta
+            //ALERT
         }
+        
     }
+    
 
     // MARK: - Table view data source
 
@@ -68,24 +70,23 @@ class GetALLTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return productos.count
+        return usuarios.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTableViewCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UsuarioTableViewCell
+
         cell.delegate = self
-        cell.NombreLabel.text = productos[indexPath.row].Nombre
-        cell.PrecioUnitarioLabel.text = String(productos[indexPath.row].PrecioUnitario)
-        cell.StockLabel.text = String(productos[indexPath.row].Stock)
-        cell.DescripcionLabel.text = productos[indexPath.row].Descripcion
+        cell.UserNameLabel.text = usuarios[indexPath.row].UserName
+        cell.NombreLabel.text = usuarios[indexPath.row].Nombre
+       
         
-        if productos[indexPath.row].Imagen == ""{
-            cell.ImageProductoLabel.image = UIImage(named: "imgProducto")
+        if usuarios[indexPath.row].Imagen == ""{
+            cell.UsuarioImage.image = UIImage(named: "imgUser")
         }
         else{
-            cell.ImageProductoLabel.image = UIImage(data: Data(base64Encoded: productos[indexPath.row].Imagen, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!)
+            cell.UsuarioImage.image = UIImage(data: Data(base64Encoded: usuarios[indexPath.row].Imagen, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!)
         }
         
         // Configure the cell...
@@ -138,21 +139,19 @@ class GetALLTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 }
 
-
-
-extension GetALLTableViewController : SwipeTableViewCellDelegate{
+extension GetALLUsuarioTableViewController : SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> [SwipeCellKit.SwipeAction]? {
-     
         
         if orientation == .right {
             
             //delete
             let deleteAction = SwipeAction(style: .destructive, title: "DELETE") { action, indexPath in
                 
-                self.idProducto = self.productos[indexPath.row].IdProducto
-                let result = self.productoViewModel.Delete(idProducto: self.idProducto)
+                self.nombre = self.usuarios[indexPath.row].Nombre
+                let result = self.usuarioViewModel.Delete(nombre: self.nombre)
                 self.loadData()
                 
                 //ALERT
@@ -167,11 +166,11 @@ extension GetALLTableViewController : SwipeTableViewCellDelegate{
                 }
                 else{
                     let alertError  = UIAlertController(title: "ERROR", message: "PRODUCTO NO ELIMINADO", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .default)
-            
-            alertError.addAction(ok)
-            
-            self.present(alertError, animated: false)
+                    let ok = UIAlertAction(title: "OK", style: .default)
+                    
+                    alertError.addAction(ok)
+                    
+                    self.present(alertError, animated: false)
                     
                 }
             }
@@ -184,8 +183,8 @@ extension GetALLTableViewController : SwipeTableViewCellDelegate{
             //update
             let updateAction = SwipeAction(style: .default, title: "UPDATE") { action, indexPath in
                 
-                self.idProducto = self.productos[indexPath.row].IdProducto
-                let result = self.performSegue(withIdentifier: "UpdateSegue", sender: self)
+                self.nombre = self.usuarios[indexPath.row].Nombre
+                let result = self.performSegue(withIdentifier: "UpdateUsuarioSegue", sender: self)
             }
             
             updateAction.image = UIImage(systemName: "repeat")
@@ -196,9 +195,9 @@ extension GetALLTableViewController : SwipeTableViewCellDelegate{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "UpdateSegue"{
-            let productoForm = segue.destination as! ProductoViewController
-            productoForm.idProducto = self.idProducto
+        if segue.identifier == "UpdateUsuarioSegue"{
+            let usuarioForm = segue.destination as! UsuarioViewController
+            usuarioForm.nombre = self.nombre
         }
     }
 }

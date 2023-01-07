@@ -1,35 +1,32 @@
 //
-//  ProductoViewModel.swift
+//  DepartamentoViewModel.swift
 //  JSanchezEcommerce
 //
-//  Created by MacBookMBA4 on 28/12/22.
+//  Created by MacBookMBA4 on 05/01/23.
 //
 
 import Foundation
 import SQLite3
 
-class ProductoViewModel{
+class DepartamentoViewModel{
     
     let productoModel : Producto? = nil
     
     //ADD
-    func Add(producto : Producto) -> Result {
+    func Add(departamento : Departamento) -> Result {
         
         var result = Result()
         let context = DB.init()
         
-        let query = "INSERT INTO Producto(Nombre, PrecioUnitario, Stock, Descripcion, IdProveedor, IdDepartamento) VALUES (?,?,?,?,?,?)"
+        let query = "INSERT INTO Departamento(Nombre, IdArea) VALUES (?,?)"
         var statement : OpaquePointer? = nil
         
         do{
             if try sqlite3_prepare_v2(context.db, query, -1, &statement, nil) == SQLITE_OK{
                 
-                sqlite3_bind_text(statement, 1, (producto.Nombre as NSString).utf8String, -1, nil)
-                sqlite3_bind_double(statement, 2, Double(producto.PrecioUnitario))
-                sqlite3_bind_int(statement, 3, Int32(producto.Stock))
-                sqlite3_bind_text(statement, 4, (producto.Descripcion as NSString).utf8String, -1, nil)
-                sqlite3_bind_int(statement, 5, Int32(producto.Proveedor!.IdProveedor))
-                sqlite3_bind_int(statement, 6, Int32(producto.Departamento!.IdDepartamento))
+                sqlite3_bind_text(statement, 1, (departamento.Nombre as NSString).utf8String, -1, nil)
+                sqlite3_bind_int(statement, 2, Int32(departamento.Area!.IdArea))
+                
                 
                 if sqlite3_step(statement) == SQLITE_DONE{
                     result.Correct = true
@@ -47,29 +44,28 @@ class ProductoViewModel{
             result.ErrorMessage = error.localizedDescription
             
         }
+        
+        sqlite3_finalize(statement)
+        sqlite3_close(context.db)
         return result
     }
     
     //UPDATE
-    func Update(producto : Producto) -> Result {
+    func Update(departamento : Departamento) -> Result {
         
         var result = Result()
         let context = DB.init()
         
-        let query = "UPDATE Producto SET Nombre = ?, PrecioUnitario = ?, Stock = ?, Descripcion = ? , IdProveedor = ?, IdDepartamento = ? WHERE IdProducto = ?"
+        let query = "UPDATE Departamento SET Nombre = ?, IdArea = ? WHERE IdDepartamento = ?"
         
         var statement : OpaquePointer? = nil
         
         do{
             if try sqlite3_prepare_v2(context.db, query, -1, &statement, nil) == SQLITE_OK{
                 
-                sqlite3_bind_text(statement, 1, (producto.Nombre as NSString).utf8String, -1, nil)
-                sqlite3_bind_double(statement, 2, Double(producto.PrecioUnitario))
-                sqlite3_bind_int(statement, 3, Int32(producto.Stock))
-                sqlite3_bind_text(statement, 4, (producto.Descripcion as NSString).utf8String, -1, nil)
-                sqlite3_bind_int(statement, 5, Int32(producto.Proveedor!.IdProveedor))
-                sqlite3_bind_int(statement, 6, Int32(producto.Departamento!.IdDepartamento))
-                sqlite3_bind_int(statement, 7, Int32(producto.IdProducto))
+                sqlite3_bind_text(statement, 1, (departamento.Nombre as NSString).utf8String, -1, nil)
+                sqlite3_bind_int(statement, 2, Int32(departamento.Area!.IdArea))
+                sqlite3_bind_int(statement, 3, Int32(departamento.IdDepartamento))
                 
                 if sqlite3_step(statement) == SQLITE_DONE{
                     result.Correct = true
@@ -87,24 +83,27 @@ class ProductoViewModel{
             result.ErrorMessage = error.localizedDescription
             
         }
+        
+        sqlite3_finalize(statement)
+        sqlite3_close(context.db)
         return result
     }
     
     //DELETE
-    func Delete(idProducto : Int) -> Result{
+    func Delete(idDepartamento : Int) -> Result{
         
         var result = Result()
         let context = DB.init()
         
-        let query = "DELETE FROM Producto WHERE IdProducto = \(idProducto)"
+        let query = "DELETE FROM Departamento WHERE IdDepartamento = \(idDepartamento)"
         
         var statement : OpaquePointer? = nil
         
         do{
             if try sqlite3_prepare_v2(context.db, query, -1, &statement, nil) == SQLITE_OK{
                 
-                let producto = Producto()
-                sqlite3_bind_int(statement, 1, Int32(producto.IdProducto))
+                let departamento = Departamento()
+                sqlite3_bind_int(statement, 1, Int32(departamento.IdDepartamento))
                 
                 if sqlite3_step(statement) == SQLITE_DONE{
                     result.Correct = true
@@ -122,6 +121,9 @@ class ProductoViewModel{
             result.ErrorMessage = error.localizedDescription
             
         }
+        
+        sqlite3_finalize(statement)
+        sqlite3_close(context.db)
         return result
         
     }
@@ -131,23 +133,21 @@ class ProductoViewModel{
         
         var result = Result()
         let context = DB.init()
-        let query = "SELECT Nombre, PrecioUnitario, Stock, Descripcion, IdProveedor, IdDepartamento FROM Producto"
+        let query = "SELECT IdDepartamento, Nombre, IdArea FROM Departamento"
         var statement : OpaquePointer? = nil
         do{
             if try sqlite3_prepare_v2(context.db, query, -1, &statement, nil) == SQLITE_OK{
                 
                 result.Objects = []
                 while sqlite3_step(statement) == SQLITE_ROW{
-                    var producto = Producto()
-                    producto.IdProducto = Int(sqlite3_column_int(statement, 0))
-                    producto.Nombre = String(cString: sqlite3_column_text(statement, 1))
-                    producto.PrecioUnitario = Double(sqlite3_column_double(statement, 2))
-                    producto.Stock = Int(sqlite3_column_int(statement, 4))
-                    producto.Descripcion = String(cString: sqlite3_column_text(statement, 5))
-                    producto.Proveedor?.IdProveedor = Int(sqlite3_column_int(statement, 6))
-                    producto.Departamento?.IdDepartamento = Int(sqlite3_column_int(statement, 7))
                     
-                    result.Objects?.append(producto)
+                    var departamento = Departamento()
+                    departamento.IdDepartamento = Int(sqlite3_column_int(statement, 0))
+                    departamento.Nombre = String(cString: sqlite3_column_text(statement, 1))
+                    departamento.Area = Area()
+                    departamento.Area?.IdArea = Int(sqlite3_column_int(statement, 2))
+                    
+                    result.Objects?.append(departamento)
                 }
                 result.Correct = true
             }
@@ -156,16 +156,19 @@ class ProductoViewModel{
             result.Ex = error
             result.ErrorMessage = error.localizedDescription
         }
+        
+        sqlite3_finalize(statement)
+        sqlite3_close(context.db)
         return result
     }
     
     
     //GETBYID
-    func GetById(idProducto : Int) -> Result{
+    func GetById(idDepartamento : Int) -> Result{
         
         var result = Result()
         let context = DB.init()
-        let query = "SELECT Nombre, PrecioUnitario, Stock, Descripcion, IdProveedor, IdDepartamento FROM Producto WHERE IdProducto = \(idProducto)"
+        let query = "SELECT IdDepartamento, Nombre, IdArea FROM Departamento WHERE IdDepartamento = \(idDepartamento)"
         
         var statement : OpaquePointer? = nil
         do{
@@ -173,16 +176,14 @@ class ProductoViewModel{
                 
                 result.Objects = []
                 while sqlite3_step(statement) == SQLITE_ROW{
-                    var producto = Producto()
-                    producto.IdProducto = Int(sqlite3_column_int(statement, 0))
-                    producto.Nombre = String(cString: sqlite3_column_text(statement, 1))
-                    producto.PrecioUnitario = Double(sqlite3_column_double(statement, 2))
-                    producto.Stock = Int(sqlite3_column_int(statement, 4))
-                    producto.Descripcion = String(cString: sqlite3_column_text(statement, 5))
-                    producto.Proveedor?.IdProveedor = Int(sqlite3_column_int(statement, 6))
-                    producto.Departamento?.IdDepartamento = Int(sqlite3_column_int(statement, 7))
                     
-                    result.Objects?.append(producto)
+                    var departamento = Departamento()
+                    departamento.IdDepartamento = Int(sqlite3_column_int(statement, 0))
+                    departamento.Nombre = String(cString: sqlite3_column_text(statement, 1))
+                    departamento.Area = Area()
+                    departamento.Area?.IdArea = Int(sqlite3_column_int(statement, 2))
+                    
+                    result.Object = departamento
                 }
                 result.Correct = true
             }
@@ -191,6 +192,9 @@ class ProductoViewModel{
             result.Ex = error
             result.ErrorMessage = error.localizedDescription
         }
+        
+        sqlite3_finalize(statement)
+        sqlite3_close(context.db)
         return result
         
     }

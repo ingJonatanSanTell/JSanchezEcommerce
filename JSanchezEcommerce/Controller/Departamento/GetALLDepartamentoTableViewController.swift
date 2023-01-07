@@ -1,27 +1,26 @@
 //
-//  GetALLTableViewController.swift
+//  GetALLDepartamentoTableViewController.swift
 //  JSanchezEcommerce
 //
-//  Created by MacBookMBA4 on 30/12/22.
+//  Created by MacBookMBA4 on 05/01/23.
 //
 
 import UIKit
 import SwipeCellKit
 
-class GetALLTableViewController: UITableViewController {
+class GetALLDepartamentoTableViewController: UITableViewController {
+    
+    let departamentoViewModel = DepartamentoViewModel()
+    var departamentos = [Departamento]()
+    
+    var idDepartamento = 0
 
-    let productoViewModel = ProductoViewModel()
-    var productos = [Producto]()
-    
-    var idProducto = 0
-    
     override func viewDidLoad() {
-        navigationController?.isNavigationBarHidden =  false
         super.viewDidLoad()
-        
-        tableView.register(UINib(nibName: "ProductoTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductoCell")
-        loadData()
 
+        tableView.register(UINib(nibName: "DepartamentoTableViewCell", bundle: nil), forCellReuseIdentifier: "DepartamentoCell")
+        loadData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,27 +29,27 @@ class GetALLTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("ViewWillAppear")
-        loadData()
-    }
+            print("ViewWillAppear")
+            loadData()
+        }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("ViewDidAppear")
-    }
+        override func viewDidAppear(_ animated: Bool) {
+            print("ViewDidAppear")
+        }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        print("ViewWillDisappear")
-    }
+        override func viewWillDisappear(_ animated: Bool) {
+            print("ViewWillDisappear")
+        }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        print("ViewDidDisappear")
-    }
+        override func viewDidDisappear(_ animated: Bool) {
+            print("ViewDidDisappear")
+        }
     
     func loadData(){
-        let result = productoViewModel.GetAll()
+        let result = departamentoViewModel.GetAll()
         
         if result.Correct{
-            productos = result.Objects! as! [Producto]
+            departamentos = result.Objects! as! [Departamento]
             tableView.reloadData()
             
         }
@@ -68,25 +67,17 @@ class GetALLTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return productos.count
+        return departamentos.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTableViewCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DepartamentoCell", for: indexPath) as! DepartamentoTableViewCell
         
         cell.delegate = self
-        cell.NombreLabel.text = productos[indexPath.row].Nombre
-        cell.PrecioUnitarioLabel.text = String(productos[indexPath.row].PrecioUnitario)
-        cell.StockLabel.text = String(productos[indexPath.row].Stock)
-        cell.DescripcionLabel.text = productos[indexPath.row].Descripcion
-        
-        if productos[indexPath.row].Imagen == ""{
-            cell.ImageProductoLabel.image = UIImage(named: "imgProducto")
-        }
-        else{
-            cell.ImageProductoLabel.image = UIImage(data: Data(base64Encoded: productos[indexPath.row].Imagen, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!)
-        }
+        cell.NombreDepartamentoLabel.text = departamentos[indexPath.row].Nombre
+        cell.IdAreaLabel.text = String(departamentos[indexPath.row].Area!.IdArea)
         
         // Configure the cell...
 
@@ -138,26 +129,24 @@ class GetALLTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 }
 
-
-
-extension GetALLTableViewController : SwipeTableViewCellDelegate{
+extension GetALLDepartamentoTableViewController : SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> [SwipeCellKit.SwipeAction]? {
-     
         
         if orientation == .right {
             
             //delete
             let deleteAction = SwipeAction(style: .destructive, title: "DELETE") { action, indexPath in
                 
-                self.idProducto = self.productos[indexPath.row].IdProducto
-                let result = self.productoViewModel.Delete(idProducto: self.idProducto)
+                self.idDepartamento = self.departamentos[indexPath.row].IdDepartamento
+                let result = self.departamentoViewModel.Delete(idDepartamento: self.idDepartamento)
                 self.loadData()
                 
                 //ALERT
                 if result.Correct{
-                    let alert  = UIAlertController(title: "CONFIRMACION", message: "PRODUCTO ELIMINADO", preferredStyle: .alert)
+                    let alert  = UIAlertController(title: "CONFIRMACION", message: "DEPARTAMENTO ELIMINADO", preferredStyle: .alert)
                     let ok = UIAlertAction(title: "OK", style: .default)
                     
                     alert.addAction(ok)
@@ -166,7 +155,7 @@ extension GetALLTableViewController : SwipeTableViewCellDelegate{
                     
                 }
                 else{
-                    let alertError  = UIAlertController(title: "ERROR", message: "PRODUCTO NO ELIMINADO", preferredStyle: .alert)
+                    let alertError  = UIAlertController(title: "ERROR", message: "DEPARTAMENTO NO ELIMINADO", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default)
             
             alertError.addAction(ok)
@@ -184,10 +173,9 @@ extension GetALLTableViewController : SwipeTableViewCellDelegate{
             //update
             let updateAction = SwipeAction(style: .default, title: "UPDATE") { action, indexPath in
                 
-                self.idProducto = self.productos[indexPath.row].IdProducto
-                let result = self.performSegue(withIdentifier: "UpdateSegue", sender: self)
+                self.idDepartamento = self.departamentos[indexPath.row].IdDepartamento
+                let result = self.performSegue(withIdentifier: "UpdateDepartamentoSegue", sender: self)
             }
-            
             updateAction.image = UIImage(systemName: "repeat")
             updateAction.backgroundColor = .green
             return [updateAction]
@@ -196,9 +184,10 @@ extension GetALLTableViewController : SwipeTableViewCellDelegate{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "UpdateSegue"{
-            let productoForm = segue.destination as! ProductoViewController
-            productoForm.idProducto = self.idProducto
+        if segue.identifier == "UpdateDepartamentoSegue"{
+            let departamentoForm = segue.destination as! DepartamentoViewController
+            departamentoForm.idDepartamento = self.idDepartamento
         }
     }
 }
+

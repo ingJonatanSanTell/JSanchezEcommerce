@@ -1,19 +1,19 @@
 //
-//  ProductoTableViewCell.swift
+//  DepartamentoTableViewCell.swift
 //  JSanchezEcommerce
 //
-//  Created by MacBookMBA4 on 30/12/22.
+//  Created by MacBookMBA4 on 05/01/23.
 //
 
 import UIKit
+import SwipeCellKit
 
-class ProductoTableViewCell: UITableViewCell {
+class DepartamentoTableViewCell: SwipeTableViewCell {
 
-    @IBOutlet weak var NombreLabel: UILabel!
-    @IBOutlet weak var PrecioUnitarioLabel: UILabel!
-    @IBOutlet weak var StockLabel: UILabel!
-    @IBOutlet weak var DescripcionLabel: UILabel!
+    @IBOutlet weak var IdAreaLabel: UILabel!
+    @IBOutlet weak var NombreDepartamentoLabel: UILabel!
     
+    @IBOutlet weak var ImagenDepartamento: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
