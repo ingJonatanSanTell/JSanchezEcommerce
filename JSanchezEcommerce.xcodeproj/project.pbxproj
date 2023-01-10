@@ -15,6 +15,7 @@
 		E325FBE029673A0500656F3C /* DepartamentoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E325FBDE29673A0500656F3C /* DepartamentoTableViewCell.xib */; };
 		E325FBE429673AB500656F3C /* GetALLDepartamentoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E325FBE329673AB500656F3C /* GetALLDepartamentoTableViewController.swift */; };
 		E325FBE62967430D00656F3C /* DepartamentoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E325FBE52967430D00656F3C /* DepartamentoViewModel.swift */; };
+		E33CCEB8296C9D2300D181D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E33CCEB7296C9D2300D181D5 /* GoogleService-Info.plist */; };
 		E33DBE4329676BB300D2BCC8 /* UsuarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DBE4129676BB300D2BCC8 /* UsuarioTableViewCell.swift */; };
 		E33DBE4429676BB300D2BCC8 /* UsuarioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E33DBE4229676BB300D2BCC8 /* UsuarioTableViewCell.xib */; };
 		E33DBE4629676FBE00D2BCC8 /* UsuarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33DBE4529676FBE00D2BCC8 /* UsuarioViewModel.swift */; };
@@ -29,6 +30,7 @@
 		E3518088295CD0A600488241 /* Departamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3518087295CD0A600488241 /* Departamento.swift */; };
 		E351808A295CD0B000488241 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3518089295CD0B000488241 /* Area.swift */; };
 		E351808C295CD44B00488241 /* ProductoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E351808B295CD44B00488241 /* ProductoViewModel.swift */; };
+		E364FB84296CC58300ED365C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E364FB83296CC58300ED365C /* LoginViewController.swift */; };
 		E38D26F2295BC21400FFA829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D26F1295BC21400FFA829 /* AppDelegate.swift */; };
 		E38D26F4295BC21400FFA829 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D26F3295BC21400FFA829 /* SceneDelegate.swift */; };
 		E38D26F6295BC21400FFA829 /* ProductoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D26F5295BC21400FFA829 /* ProductoViewController.swift */; };
@@ -49,6 +51,7 @@
 		E325FBDE29673A0500656F3C /* DepartamentoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartamentoTableViewCell.xib; sourceTree = "<group>"; };
 		E325FBE329673AB500656F3C /* GetALLDepartamentoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetALLDepartamentoTableViewController.swift; sourceTree = "<group>"; };
 		E325FBE52967430D00656F3C /* DepartamentoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartamentoViewModel.swift; sourceTree = "<group>"; };
+		E33CCEB7296C9D2300D181D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E33DBE4129676BB300D2BCC8 /* UsuarioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioTableViewCell.swift; sourceTree = "<group>"; };
 		E33DBE4229676BB300D2BCC8 /* UsuarioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsuarioTableViewCell.xib; sourceTree = "<group>"; };
 		E33DBE4529676FBE00D2BCC8 /* UsuarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		E3518087295CD0A600488241 /* Departamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departamento.swift; sourceTree = "<group>"; };
 		E3518089295CD0B000488241 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		E351808B295CD44B00488241 /* ProductoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoViewModel.swift; sourceTree = "<group>"; };
+		E364FB83296CC58300ED365C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E38D26EE295BC21400FFA829 /* JSanchezEcommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSanchezEcommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38D26F1295BC21400FFA829 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E38D26F3295BC21400FFA829 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +163,14 @@
 			path = Departamento;
 			sourceTree = "<group>";
 		};
+		E364FB82296CC55E00ED365C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E364FB83296CC58300ED365C /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		E38D26E5295BC21400FFA829 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +200,7 @@
 				E38D26F3295BC21400FFA829 /* SceneDelegate.swift */,
 				E38D26FD295BC21500FFA829 /* Assets.xcassets */,
 				E38D2702295BC21500FFA829 /* Info.plist */,
+				E33CCEB7296C9D2300D181D5 /* GoogleService-Info.plist */,
 				E38D26FA295BC21400FFA829 /* JSanchezEcommerce.xcdatamodeld */,
 			);
 			path = JSanchezEcommerce;
@@ -233,6 +246,7 @@
 		E38D270B295BC25C00FFA829 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E364FB82296CC55E00ED365C /* Login */,
 				E33DBE4F29679EDD00D2BCC8 /* User */,
 				E34B2C2029673904007002A9 /* Departamento */,
 				E3219D22295F53F100EEF1B3 /* Producto */,
@@ -306,6 +320,7 @@
 				E3219D1F295F51A700EEF1B3 /* ProductoTableViewCell.xib in Resources */,
 				E38D26FE295BC21500FFA829 /* Assets.xcassets in Resources */,
 				E38D26F9295BC21400FFA829 /* Main.storyboard in Resources */,
+				E33CCEB8296C9D2300D181D5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +385,7 @@
 				E38D26F2295BC21400FFA829 /* AppDelegate.swift in Sources */,
 				E33DBE4C29679BA700D2BCC8 /* User.swift in Sources */,
 				E325FBDF29673A0500656F3C /* DepartamentoTableViewCell.swift in Sources */,
+				E364FB84296CC58300ED365C /* LoginViewController.swift in Sources */,
 				E325FBE429673AB500656F3C /* GetALLDepartamentoTableViewController.swift in Sources */,
 				E33DBE4629676FBE00D2BCC8 /* UsuarioViewModel.swift in Sources */,
 				E3518082295CCFD600488241 /* Producto.swift in Sources */,

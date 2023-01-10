@@ -13,13 +13,13 @@ class GetALLUsuarioTableViewController: UITableViewController {
     let usuarioViewModel = UsuarioViewModel()
     var usuarios = [User]()
     
-    var nombre = ""
+    var idUsuario = 0
 
     override func viewDidLoad() {
         navigationController?.isNavigationBarHidden =  false
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "UsuarioTableViewCell", bundle: nil), forCellReuseIdentifier: "UserCell")
+        tableView.register(UINib(nibName: "UsuarioTableViewCell", bundle: nil), forCellReuseIdentifier: "UsuarioCell")
         loadData()
 
         // Uncomment the following line to preserve selection between presentations
@@ -47,7 +47,6 @@ class GetALLUsuarioTableViewController: UITableViewController {
     }
     
     func loadData(){
-        
         let result = usuarioViewModel.GetAll()
         
         if result.Correct{
@@ -75,12 +74,20 @@ class GetALLUsuarioTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UsuarioTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UsuarioCell", for: indexPath) as! UsuarioTableViewCell
 
         cell.delegate = self
         cell.UserNameLabel.text = usuarios[indexPath.row].UserName
         cell.NombreLabel.text = usuarios[indexPath.row].Nombre
-       
+        cell.ApellidoPaternoLabel.text = usuarios[indexPath.row].ApellidoPaterno
+        cell.ApellidoMaternoLabel.text = usuarios[indexPath.row].ApellidoMaterno
+        cell.EmailLabel.text = usuarios[indexPath.row].Email
+        cell.PasswordLabel.text = usuarios[indexPath.row].Password
+        //cell.FechaNacimientoLabel.text = String(usuarios[indexPath.row].FechaNacimiento)
+        cell.SexoLabel.text = usuarios[indexPath.row].Sexo
+        cell.TelefonoLabel.text = usuarios[indexPath.row].Telefono
+        cell.CelularLabel.text = usuarios[indexPath.row].Celular
+        cell.CurpLabel.text = usuarios[indexPath.row].Curp
         
         if usuarios[indexPath.row].Imagen == ""{
             cell.UsuarioImage.image = UIImage(named: "imgUser")
@@ -150,13 +157,13 @@ extension GetALLUsuarioTableViewController : SwipeTableViewCellDelegate {
             //delete
             let deleteAction = SwipeAction(style: .destructive, title: "DELETE") { action, indexPath in
                 
-                self.nombre = self.usuarios[indexPath.row].Nombre
-                let result = self.usuarioViewModel.Delete(nombre: self.nombre)
+                self.idUsuario = self.usuarios[indexPath.row].IdUsuario
+                let result = self.usuarioViewModel.Delete(idUsuario: self.idUsuario)
                 self.loadData()
                 
                 //ALERT
                 if result.Correct{
-                    let alert  = UIAlertController(title: "CONFIRMACION", message: "PRODUCTO ELIMINADO", preferredStyle: .alert)
+                    let alert  = UIAlertController(title: "CONFIRMACION", message: "USUARIO ELIMINADO", preferredStyle: .alert)
                     let ok = UIAlertAction(title: "OK", style: .default)
                     
                     alert.addAction(ok)
@@ -165,7 +172,7 @@ extension GetALLUsuarioTableViewController : SwipeTableViewCellDelegate {
                     
                 }
                 else{
-                    let alertError  = UIAlertController(title: "ERROR", message: "PRODUCTO NO ELIMINADO", preferredStyle: .alert)
+                    let alertError  = UIAlertController(title: "ERROR", message: "USUARIO NO ELIMINADO", preferredStyle: .alert)
                     let ok = UIAlertAction(title: "OK", style: .default)
                     
                     alertError.addAction(ok)
@@ -183,7 +190,7 @@ extension GetALLUsuarioTableViewController : SwipeTableViewCellDelegate {
             //update
             let updateAction = SwipeAction(style: .default, title: "UPDATE") { action, indexPath in
                 
-                self.nombre = self.usuarios[indexPath.row].Nombre
+                self.idUsuario = self.usuarios[indexPath.row].IdUsuario
                 let result = self.performSegue(withIdentifier: "UpdateUsuarioSegue", sender: self)
             }
             
@@ -197,7 +204,7 @@ extension GetALLUsuarioTableViewController : SwipeTableViewCellDelegate {
         
         if segue.identifier == "UpdateUsuarioSegue"{
             let usuarioForm = segue.destination as! UsuarioViewController
-            usuarioForm.nombre = self.nombre
+            usuarioForm.idUsuario = self.idUsuario
         }
     }
 }

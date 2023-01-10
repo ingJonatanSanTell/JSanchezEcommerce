@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class ProductoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var ActionButton: UIButton!
@@ -23,6 +25,8 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var IdProveddorTextField: UITextField!
     @IBOutlet weak var IdDepartamentoTextField: UITextField!
     @IBOutlet weak var IdProductoTextField: UITextField!
+    
+    
     
     let productoViewModel = ProductoViewModel()
     var productoModel : Producto? = nil

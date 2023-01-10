@@ -8,7 +8,13 @@
 import UIKit
 import SwipeCellKit
 
+enum ProviderType: String{
+    case basic
+}
+
 class GetALLTableViewController: UITableViewController {
+    
+    
 
     let productoViewModel = ProductoViewModel()
     var productos = [Producto]()

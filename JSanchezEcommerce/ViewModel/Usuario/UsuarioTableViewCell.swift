@@ -24,9 +24,6 @@ class UsuarioTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var CurpLabel: UILabel!
     
     
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

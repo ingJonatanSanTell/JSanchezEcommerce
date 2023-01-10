@@ -24,7 +24,7 @@ class UsuarioViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var ActionButton: UIButton!
     
     
-    var nombre : String = ""
+    var idUsuario : Int? = nil
     let imagePicker = UIImagePickerController()
     
     let usuarioViewModel = UsuarioViewModel()
@@ -37,9 +37,54 @@ class UsuarioViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.sourceType = .photoLibrary
         imagePicker.isEditing = false
         
-        //Validar()
+        Validar()
+        
+
+        
+        //usuarioViewModel.Delete(idUsuario: 3)
         
         // Do any additional setup after loading the view.
+    }
+    
+    func Validar(){
+        if self.idUsuario == nil {
+            
+            ActionButton.setTitle("INSERT", for: .normal)
+            UsuarioImagen.image = UIImage(named: "imgUser")
+        }
+        else{
+            ActionButton.setTitle("UPDATE", for: .normal)
+            
+            let result : Result = usuarioViewModel.GetById(idUsuario: idUsuario!)
+            
+            if result.Correct{
+                let usuario = result.Object as! User
+                
+                UserNameLabel.text = usuario.UserName
+                NombreLabel.text = usuario.Nombre
+                ApellidoPaternoLabel.text = usuario.ApellidoPaterno
+                ApellidoMaternoLabel.text = usuario.ApellidoMaterno
+                EmailLabel.text = usuario.Email
+                PasswordLabel.text = usuario.Password
+                FechaNacDatePicker.date = usuario.FechaNacimiento
+                SexoLabel.text = usuario.Sexo
+                TelefonoLabel.text = usuario.Telefono
+                CelularLabel.text = usuario.Celular
+                CurpLabel.text = usuario.Curp
+                
+                if usuario.Imagen == ""{
+                    UsuarioImagen.image = UIImage(named: "imgUser")
+                }
+                else{
+                    UsuarioImagen.image = UIImage(data: Data(base64Encoded: usuario.Imagen, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!)
+                }
+                
+            }
+            else{
+                print("ERROR")
+            }
+        }
+        
     }
     
     

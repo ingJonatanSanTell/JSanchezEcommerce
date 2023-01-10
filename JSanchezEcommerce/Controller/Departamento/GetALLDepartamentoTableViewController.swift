@@ -16,6 +16,7 @@ class GetALLDepartamentoTableViewController: UITableViewController {
     var idDepartamento = 0
 
     override func viewDidLoad() {
+        navigationController?.isNavigationBarHidden =  false
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "DepartamentoTableViewCell", bundle: nil), forCellReuseIdentifier: "DepartamentoCell")
