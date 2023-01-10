@@ -13,7 +13,7 @@ class GetALLUsuarioTableViewController: UITableViewController {
     let usuarioViewModel = UsuarioViewModel()
     var usuarios = [User]()
     
-    var idUsuario = 0
+    var idUsuario : Int = 0
 
     override func viewDidLoad() {
         navigationController?.isNavigationBarHidden =  false
@@ -157,7 +157,6 @@ extension GetALLUsuarioTableViewController : SwipeTableViewCellDelegate {
             //delete
             let deleteAction = SwipeAction(style: .destructive, title: "DELETE") { action, indexPath in
                 
-                self.idUsuario = self.usuarios[indexPath.row].IdUsuario
                 let result = self.usuarioViewModel.Delete(idUsuario: self.idUsuario)
                 self.loadData()
                 
@@ -190,7 +189,6 @@ extension GetALLUsuarioTableViewController : SwipeTableViewCellDelegate {
             //update
             let updateAction = SwipeAction(style: .default, title: "UPDATE") { action, indexPath in
                 
-                self.idUsuario = self.usuarios[indexPath.row].IdUsuario
                 let result = self.performSegue(withIdentifier: "UpdateUsuarioSegue", sender: self)
             }
             

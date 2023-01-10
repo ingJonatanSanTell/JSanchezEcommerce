@@ -55,7 +55,7 @@ class UsuarioViewController: UIViewController, UIImagePickerControllerDelegate, 
         else{
             ActionButton.setTitle("UPDATE", for: .normal)
             
-            let result : Result = usuarioViewModel.GetById(idUsuario: idUsuario!)
+            let result : Result = usuarioViewModel.GetById(idUsuario: idUsuario!)//.Object as! User
             
             if result.Correct{
                 let usuario = result.Object as! User
@@ -174,6 +174,8 @@ class UsuarioViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         usuarioModel = User(IdUsuario: 0, UserName: UserName, Nombre: Nombre, ApellidoPaterno: ApellidoPaterno, ApellidoMaterno: ApellidoMaterno, Email: Email, Password: Password, FechaNacimiento: Fecha, Sexo: Sexo, Telefono: Telefono, Celular: Celular, Curp: CURP, Imagen: imageString)
         
+        //ADD
+        if sender.currentTitle == "INSERT"{
         let result = usuarioViewModel.Add(usuario: usuarioModel!)
         
         if result.Correct{
@@ -196,8 +198,7 @@ class UsuarioViewController: UIViewController, UIImagePickerControllerDelegate, 
             CelularLabel.text = ""
             CurpLabel.text = ""
             UsuarioImagen.image = UIImage(named: "imgProducto")
-            
-            
+               
         }
         else{
             let alertError  = UIAlertController(title: "ERROR", message: "PRODUCTO NO AGREGADO", preferredStyle: .alert)
@@ -220,6 +221,58 @@ class UsuarioViewController: UIViewController, UIImagePickerControllerDelegate, 
             UsuarioImagen.image = UIImage(named: "imgProducto")
             
         }
+    }
+        
+        //UPDATE
+        else if sender.currentTitle == "UPDATE"{
+            
+            let result = usuarioViewModel.Update(usuario: usuarioModel!, idUsuario: idUsuario!)
+            
+            if result.Correct{
+                
+                let alert  = UIAlertController(title: "CONFIRMACION", message: "PRODUCTO ACTUALIZADO", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default)
+                
+                alert.addAction(ok)
+                
+                self.present(alert, animated: false)
+                
+                UserNameLabel.text = ""
+                NombreLabel.text = ""
+                ApellidoPaternoLabel.text = ""
+                ApellidoMaternoLabel.text = ""
+                EmailLabel.text = ""
+                PasswordLabel.text = ""
+                SexoLabel.text = ""
+                TelefonoLabel.text = ""
+                CelularLabel.text = ""
+                CurpLabel.text = ""
+                UsuarioImagen.image = UIImage(named: "imgProducto")
+                
+            }
+            else{
+                let alertError  = UIAlertController(title: "ERROR", message: "PRODUCTO NO ACTUALIZADO", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default)
+                
+                alertError.addAction(ok)
+                
+                self.present(alertError, animated: false)
+                
+                UserNameLabel.text = ""
+                NombreLabel.text = ""
+                ApellidoPaternoLabel.text = ""
+                ApellidoMaternoLabel.text = ""
+                EmailLabel.text = ""
+                PasswordLabel.text = ""
+                SexoLabel.text = ""
+                TelefonoLabel.text = ""
+                CelularLabel.text = ""
+                CurpLabel.text = ""
+                UsuarioImagen.image = UIImage(named: "imgProducto")
+                
+            }
+            
+            }
     }
     
     /*

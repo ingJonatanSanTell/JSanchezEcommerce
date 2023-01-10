@@ -1,42 +1,40 @@
 //
-//  LoginViewController.swift
+//  RegistroViewController.swift
 //  JSanchezEcommerce
 //
-//  Created by MacBookMBA4 on 09/01/23.
+//  Created by MacBookMBA4 on 10/01/23.
 //
 
 import UIKit
 import FirebaseCore
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class RegistroViewController: UIViewController {
 
     @IBOutlet weak var EmailLabel: UITextField!
+    
     @IBOutlet weak var PasswordLabel: UITextField!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        title = "Registro de Nuevo Usuario"
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func LoginButton(_ sender: UIButton) {
+
+    @IBAction func RegistrarButton(_ sender: UIButton) {
         
         if let email = EmailLabel.text, let password = PasswordLabel.text{
             
-            Auth.auth().signIn(withEmail: email, password: password){ [self] (result, error) in
+            Auth.auth().createUser(withEmail: email, password: password){ [self] (result, error) in
                 
                 if let result = result, error == nil{
                     
                     //mandar a inicio
                     //codigo
                     
-                    self.performSegue(withIdentifier: "login", sender: self)
-                
-                    let alertController  = UIAlertController(title: "BIENVENIDO", message: "Usuario Encontrado", preferredStyle: .alert)
+                    let alertController  = UIAlertController(title: "CORRECTO", message: "Usuario Registrasdo", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
                     self.present(alertController, animated: true, completion: nil)
                     
@@ -45,7 +43,7 @@ class LoginViewController: UIViewController {
                 }
                 else{
                     
-                    let alertController  = UIAlertController(title: "ERROR", message: "No se encontro el Email", preferredStyle: .alert)
+                    let alertController  = UIAlertController(title: "ERROR", message: "No se pudo registrar al Usuario", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
                     self.present(alertController, animated: true, completion: nil)
                     
@@ -57,7 +55,6 @@ class LoginViewController: UIViewController {
         }
         
     }
-    
     /*
     // MARK: - Navigation
 

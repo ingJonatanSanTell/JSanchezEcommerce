@@ -50,36 +50,29 @@ class UsuarioViewModel{
         return result
     }
     
-    func Update(usuario : User) -> Result{
+    func Update(usuario : User, idUsuario: Int) -> Result{
         
         var result = Result()
         
-        let context = appDelegate.persistentContainer.viewContext
-        let request : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Usuario")
-        request.predicate = NSPredicate(format: "IdUsuario = %@", "")
-        
-        
         do{
+            let context = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuario")
+            let usuarios = try context.fetch(request) as! [NSManagedObject]
             
-            let usuarios = try context.fetch(request)
-            let objUsuario = usuarios[0] as! NSManagedObject
-            
-            objUsuario.setValue(usuario.IdUsuario, forKey: "idUsuario")
-            objUsuario.setValue(usuario.UserName, forKey: "userName")
-            objUsuario.setValue(usuario.Nombre, forKey: "nombre")
-            objUsuario.setValue(usuario.ApellidoPaterno, forKey: "apellidoPaterno")
-            objUsuario.setValue(usuario.ApellidoMaterno, forKey: "apellidoMaterno")
-            objUsuario.setValue(usuario.Email, forKey: "email")
-            objUsuario.setValue(usuario.Password, forKey: "password")
-            objUsuario.setValue(usuario.FechaNacimiento, forKey: "fechaNacimiento")
-            objUsuario.setValue(usuario.Sexo, forKey: "sexo")
-            objUsuario.setValue(usuario.Telefono, forKey: "telefono")
-            objUsuario.setValue(usuario.Celular, forKey: "celular")
-            objUsuario.setValue(usuario.Curp, forKey: "curp")
-            objUsuario.setValue(usuario.Imagen, forKey: "imagen")
+            usuarios[idUsuario].setValue(usuario.UserName, forKey: "userName")
+            usuarios[idUsuario].setValue(usuario.Nombre, forKey: "nombre")
+            usuarios[idUsuario].setValue(usuario.ApellidoPaterno, forKey: "apellidoPaterno")
+            usuarios[idUsuario].setValue(usuario.ApellidoMaterno, forKey: "apellidoMaterno")
+            usuarios[idUsuario].setValue(usuario.Email, forKey: "email")
+            usuarios[idUsuario].setValue(usuario.Password, forKey: "password")
+            usuarios[idUsuario].setValue(usuario.FechaNacimiento, forKey: "fechaNacimiento")
+            usuarios[idUsuario].setValue(usuario.Sexo, forKey: "sexo")
+            usuarios[idUsuario].setValue(usuario.Telefono, forKey: "telefono")
+            usuarios[idUsuario].setValue(usuario.Celular, forKey: "celular")
+            usuarios[idUsuario].setValue(usuario.Curp, forKey: "curp")
+            usuarios[idUsuario].setValue(usuario.Imagen, forKey: "imagen")
             
             try! context.save()
-            
             result.Correct = true
             
         }catch let error{
@@ -95,32 +88,35 @@ class UsuarioViewModel{
         
         var result = Result()
         
+        do{
+        
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuario")
+        let usuarios = try context.fetch(request) as! [NSManagedObject]
         
-        do{
-            let usuarios = try context.fetch(request)
-            result.Objects = [User]()
+            result.Objects = []
             
-            for objUsuario in usuarios as! [NSManagedObject]{
-                var usuario = User()
-                
-                usuario.UserName = objUsuario.value(forKey: "userName") as! String
-                usuario.Nombre = objUsuario.value( forKey: "nombre") as! String
-                usuario.ApellidoPaterno = objUsuario.value( forKey: "apellidoPaterno") as! String
-                usuario.ApellidoMaterno = objUsuario.value( forKey: "apellidoMaterno") as! String
-                usuario.Email = objUsuario.value( forKey: "email") as! String
-                usuario.Password = objUsuario.value( forKey: "password") as! String
-                usuario.FechaNacimiento = objUsuario.value( forKey: "fechaNacimiento") as! Date
-                usuario.Sexo = objUsuario.value( forKey: "sexo") as! String
-                usuario.Telefono = objUsuario.value(forKey: "telefono") as! String
-                usuario.Celular = objUsuario.value(forKey: "celular") as! String
-                usuario.Curp = objUsuario.value(forKey: "curp") as! String
-                usuario.Imagen = objUsuario.value(forKey: "imagen") as! String
-                
-                result.Objects?.append(usuario)
-            }
+            for usuario in usuarios{
             
+            let user = User(IdUsuario: Int(usuario.objectID.uriRepresentation().absoluteString.components(separatedBy: "/p")[1])!,
+                           UserName: usuario.value(forKey: "userName") as! String,
+                           Nombre: usuario.value( forKey: "nombre") as! String,
+                           ApellidoPaterno: usuario.value( forKey: "apellidoPaterno") as! String,
+                           ApellidoMaterno: usuario.value( forKey: "apellidoMaterno") as! String,
+                           Email: usuario.value( forKey: "email") as! String,
+                           Password: usuario.value( forKey: "password") as! String,
+                           FechaNacimiento: usuario.value( forKey: "fechaNacimiento") as! Date,
+                            Sexo: usuario.value( forKey: "sexo") as! String,
+                           Telefono: usuario.value(forKey: "telefono") as! String,
+                           Celular: usuario.value(forKey: "celular") as! String,
+                           Curp: usuario.value(forKey: "curp") as! String,
+                           Imagen: usuario.value(forKey: "imagen") as! String)
+
+                
+            result.Objects?.append(user)
+        }
+            result.Correct = true
+        
         }catch let error{
             result.Correct = false
             result.Ex = error
@@ -134,13 +130,13 @@ class UsuarioViewModel{
         
         var result = Result()
         
-        /*do{
+        do{
         
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuario")
         let usuarios = try context.fetch(request) as! [NSManagedObject]
         
-            usuario = User(IdUsuario: Int(usuarios[idUsuario].objectID.uriRepresentation().absoluteString.components(separatedBy: "/p")[1])!,
+            let user = User(IdUsuario: Int(usuarios[idUsuario].objectID.uriRepresentation().absoluteString.components(separatedBy: "/p")[1])!,
                            UserName: usuarios[idUsuario].value(forKey: "userName") as! String,
                            Nombre: usuarios[idUsuario].value( forKey: "nombre") as! String,
                            ApellidoPaterno: usuarios[idUsuario].value( forKey: "apellidoPaterno") as! String,
@@ -157,15 +153,15 @@ class UsuarioViewModel{
                 //usuario.IdUsuario = objUsuario.objectID.uriRepresentation().absoluteString
 
                 
-            result.Objects = usuario
+            result.Object = user
             result.Correct = true
-            }
+            
             
         }catch let error{
             result.Correct = false
             result.Ex = error
             result.ErrorMessage = error.localizedDescription
-        }*/
+        }
         
         return result
     }

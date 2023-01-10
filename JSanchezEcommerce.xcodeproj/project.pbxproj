@@ -39,7 +39,24 @@
 		E38D26FE295BC21500FFA829 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E38D26FD295BC21500FFA829 /* Assets.xcassets */; };
 		E38D2701295BC21500FFA829 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E38D26FF295BC21500FFA829 /* LaunchScreen.storyboard */; };
 		E38D270D295BC2B600FFA829 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D270C295BC2B600FFA829 /* DB.swift */; };
+		E3952F40296E32F700987031 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3952F3F296E32F700987031 /* iOSDropDown.framework */; };
+		E3952F41296E32F700987031 /* iOSDropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3952F3F296E32F700987031 /* iOSDropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E3B090C1296DEE8300446368 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B090C0296DEE8300446368 /* RegistroViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E3952F42296E32F700987031 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E3952F41296E32F700987031 /* iOSDropDown.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		65043CF4935AC8BAE7C80826 /* Pods-JSanchezEcommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSanchezEcommerce.debug.xcconfig"; path = "Target Support Files/Pods-JSanchezEcommerce/Pods-JSanchezEcommerce.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +94,8 @@
 		E38D2700295BC21500FFA829 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E38D2702295BC21500FFA829 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E38D270C295BC2B600FFA829 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		E3952F3F296E32F700987031 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3B090C0296DEE8300446368 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		FD43E8199C7957640028E010 /* Pods_JSanchezEcommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSanchezEcommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A05D312264026404271E5366 /* Pods_JSanchezEcommerce.framework in Frameworks */,
+				E3952F40296E32F700987031 /* iOSDropDown.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +124,7 @@
 		D8712F5E71145AC5810E74CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3952F3F296E32F700987031 /* iOSDropDown.framework */,
 				FD43E8199C7957640028E010 /* Pods_JSanchezEcommerce.framework */,
 			);
 			name = Frameworks;
@@ -167,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				E364FB83296CC58300ED365C /* LoginViewController.swift */,
+				E3B090C0296DEE8300446368 /* RegistroViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -266,6 +288,7 @@
 				E38D26EB295BC21400FFA829 /* Frameworks */,
 				E38D26EC295BC21400FFA829 /* Resources */,
 				BF8ECC7A86DBF6B14E8872FF /* [CP] Embed Pods Frameworks */,
+				E3952F42296E32F700987031 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -381,6 +404,7 @@
 				E38D26FC295BC21400FFA829 /* JSanchezEcommerce.xcdatamodeld in Sources */,
 				E38D26F6295BC21400FFA829 /* ProductoViewController.swift in Sources */,
 				E3518088295CD0A600488241 /* Departamento.swift in Sources */,
+				E3B090C1296DEE8300446368 /* RegistroViewController.swift in Sources */,
 				E3219D1E295F51A700EEF1B3 /* ProductoTableViewCell.swift in Sources */,
 				E38D26F2295BC21400FFA829 /* AppDelegate.swift in Sources */,
 				E33DBE4C29679BA700D2BCC8 /* User.swift in Sources */,
