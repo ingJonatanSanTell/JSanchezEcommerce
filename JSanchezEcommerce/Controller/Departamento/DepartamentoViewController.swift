@@ -6,24 +6,46 @@
 //
 
 import UIKit
+import iOSDropDown
 
 class DepartamentoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     
     @IBOutlet weak var NombreDepartamentoLabel: UITextField!
-    @IBOutlet weak var IdAreaLabel: UITextField!
     @IBOutlet weak var ActionButton: UIButton!
+    @IBOutlet weak var AreaDropDown: DropDown!
     
     var idDepartamento : Int? = nil
+    var idArea : Int? = nil
     
     let departamentoViewModel = DepartamentoViewModel()
+    let areaViewModel = AreaViewModel()
     var departamentoModel : Departamento? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AreaDropDown.optionArray = [String]()
+        AreaDropDown.optionIds = [Int]()
+        
+        LoadData()
+        
+        AreaDropDown.didSelect { selectedText, index, id in
+            self.idArea = id
+        }
 
         
         Validar()
+    }
+    
+    func LoadData(){
+        let resultArea = areaViewModel.GetAll()
+        if resultArea.Correct{
+            for area in resultArea.Objects as! [Area]{
+                AreaDropDown.optionArray.append(area.Nombre)
+                AreaDropDown.optionIds?.append(area.IdArea)
+            }
+        }
     }
     
     func Validar(){
@@ -41,7 +63,7 @@ class DepartamentoViewController: UIViewController, UIImagePickerControllerDeleg
                 let departamento = result.Object as! Departamento
                 
                 NombreDepartamentoLabel.text = departamento.Nombre
-                IdAreaLabel.text = String(departamento.Area!.IdArea)
+                AreaDropDown.text = String(departamento.Area!.IdArea)
                 
             }
             else{
@@ -59,13 +81,13 @@ class DepartamentoViewController: UIViewController, UIImagePickerControllerDeleg
             
         }
                 
-        guard let IdArea = IdAreaLabel.text, IdArea != "" else{
-            IdAreaLabel.placeholder = "Coloca el Id del Area"
+        guard let IdArea = AreaDropDown.text, IdArea != "" else{
+            AreaDropDown.placeholder = "Coloca el Id del Area"
             return
         }
         
         
-        departamentoModel = Departamento(IdDepartamento: 0, Nombre: Nombre, Area: Area(IdArea: Int(IdArea)!, Nombre: ""))
+        departamentoModel = Departamento(IdDepartamento: 0, Nombre: Nombre, Area: Area(IdArea: self.idArea!, Nombre: ""))
         
         if (sender as AnyObject).currentTitle == "INSERT"{
             
@@ -81,7 +103,7 @@ class DepartamentoViewController: UIViewController, UIImagePickerControllerDeleg
                 self.present(alert, animated: false)
                 
                 NombreDepartamentoLabel.text = ""
-                IdAreaLabel.text = ""
+                AreaDropDown.text = ""
                 
             }
             else{
@@ -93,13 +115,13 @@ class DepartamentoViewController: UIViewController, UIImagePickerControllerDeleg
                 self.present(alertError, animated: false)
                 
                 NombreDepartamentoLabel.text = ""
-                IdAreaLabel.text = ""
+                AreaDropDown.text = ""
                 
             }
         }
         else if (sender as AnyObject).currentTitle == "UPDATE"{
             
-            departamentoModel = Departamento(IdDepartamento: self.idDepartamento!, Nombre: Nombre, Area: Area(IdArea: Int(IdArea)!, Nombre: ""))
+            departamentoModel = Departamento(IdDepartamento: self.idDepartamento!, Nombre: Nombre, Area: Area(IdArea: self.idArea!, Nombre: ""))
             
             let result = departamentoViewModel.Update(departamento: departamentoModel!)
             
@@ -113,7 +135,7 @@ class DepartamentoViewController: UIViewController, UIImagePickerControllerDeleg
                 self.present(alert, animated: false)
                 
                 NombreDepartamentoLabel.text = ""
-                IdAreaLabel.text = ""
+                AreaDropDown.text = ""
                 
             }
             else{
@@ -125,7 +147,7 @@ class DepartamentoViewController: UIViewController, UIImagePickerControllerDeleg
                 self.present(alertError, animated: false)
                 
                 NombreDepartamentoLabel.text = ""
-                IdAreaLabel.text = ""
+                AreaDropDown.text = ""
                 
             }
             

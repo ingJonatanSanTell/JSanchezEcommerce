@@ -3,7 +3,7 @@
     <entity name="Rol" representedClassName="Rol" syncable="YES" codeGenerationType="class">
         <attribute name="nombre" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Usuario" representedClassName="Usuario" syncable="YES" codeGenerationType="class">
+    <entity name="Usuario" representedClassName="Usuario" syncable="YES">
         <attribute name="apellidoMaterno" optional="YES" attributeType="String"/>
         <attribute name="apellidoPaterno" optional="YES" attributeType="String"/>
         <attribute name="celular" optional="YES" attributeType="String"/>

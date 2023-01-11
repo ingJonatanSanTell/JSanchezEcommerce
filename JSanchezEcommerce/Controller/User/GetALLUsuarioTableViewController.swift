@@ -152,6 +152,8 @@ class GetALLUsuarioTableViewController: UITableViewController {
 extension GetALLUsuarioTableViewController : SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> [SwipeCellKit.SwipeAction]? {
         
+        self.idUsuario = indexPath.row
+        
         if orientation == .right {
             
             //delete

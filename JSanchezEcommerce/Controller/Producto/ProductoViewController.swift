@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import iOSDropDown
 
 
 class ProductoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -14,6 +14,7 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var ActionButton: UIButton!
     
     var idProducto : Int? = nil
+    var idDepartamento : Int? = nil
     
     let imagePicker = UIImagePickerController()
     
@@ -22,23 +23,88 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var PrecioUnitarioTextField: UITextField!
     @IBOutlet weak var StockTextField: UITextField!
     @IBOutlet weak var DescripcionTextField: UITextField!
-    @IBOutlet weak var IdProveddorTextField: UITextField!
-    @IBOutlet weak var IdDepartamentoTextField: UITextField!
-    @IBOutlet weak var IdProductoTextField: UITextField!
     
+    @IBOutlet weak var ProveedorDropDown: DropDown!
+    @IBOutlet weak var DepartamentoDropDown: DropDown!
+    @IBOutlet weak var AreaDropDown: DropDown!
     
+    var idProveedor : Int? = nil
     
     let productoViewModel = ProductoViewModel()
+    let proveedorViewModel = ProveedorViewModel()
+    let departamentoViewModel = DepartamentoViewModel()
+    let areaViewModel = AreaViewModel()
+    
     var productoModel : Producto? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ProveedorDropDown.optionArray = [String]()
+        ProveedorDropDown.optionIds = [Int]()
+        
+        AreaDropDown.optionArray = [String]()
+        AreaDropDown.optionIds = [Int]()
+        
+        DepartamentoDropDown.optionArray = [String]()
+        DepartamentoDropDown.optionIds = [Int]()
+        
+        LoadData()
+        
+        ProveedorDropDown.didSelect { selectedText, index, id in
+            self.idProveedor = id
+        }
+        
+        AreaDropDown.didSelect { selectedText, index, id in
+            self.LoadDataDepartamentos(id)
+        }
+        
+        DepartamentoDropDown.didSelect { selectedText, index, id in
+            self.idDepartamento = id
+        }
+        
+        
         
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.isEditing = false
         
         Validar()
+        
+    }
+    
+    func LoadData(){
+        let resultProveedor = proveedorViewModel.GetAllProveedor()
+        if resultProveedor.Correct{
+            for proveedor in resultProveedor.Objects as! [Proveedor]{
+                ProveedorDropDown.optionArray.append(proveedor.Nombre)
+                ProveedorDropDown.optionIds?.append(proveedor.IdProveedor)
+            }
+        }
+        
+        let resultArea = areaViewModel.GetAll()
+        if resultArea.Correct{
+            for area in resultArea.Objects as! [Area]{
+                AreaDropDown.optionArray.append(area.Nombre)
+                AreaDropDown.optionIds?.append(area.IdArea)
+            }
+        }
+    }
+    
+    func LoadDataDepartamentos(_ IdArea : Int){
+        
+        let resultDepartamento = departamentoViewModel.GetByIdArea(IdArea)
+        
+        if resultDepartamento.Correct{
+            
+            DepartamentoDropDown.optionArray = [String]()
+            DepartamentoDropDown.optionIds = [Int]()
+            
+            for departamento in resultDepartamento.Objects as! [Departamento]{
+                DepartamentoDropDown.optionArray.append(departamento.Nombre)
+                DepartamentoDropDown.optionIds?.append(departamento.IdDepartamento)
+            }
+        }
         
     }
     
@@ -60,8 +126,8 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
                 PrecioUnitarioTextField.text = String(producto.PrecioUnitario)
                 StockTextField.text = String(producto.Stock)
                 DescripcionTextField.text = producto.Descripcion
-                IdProveddorTextField.text = String(producto.Proveedor!.IdProveedor)
-                IdDepartamentoTextField.text = String(producto.Departamento!.IdDepartamento)
+                ProveedorDropDown.text = String(producto.Proveedor!.IdProveedor)
+                DepartamentoDropDown.text = String(producto.Departamento!.IdDepartamento)
                 
                 if producto.Imagen == ""{
                     ImageProducto.image = UIImage(named: "imgProducto")
@@ -181,13 +247,13 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
             return
         }
                 
-        guard let IdProveedor = IdProveddorTextField.text, IdProveedor != "" else{
-            IdProveddorTextField.placeholder = "Coloca el Id del Proveedor"
+        guard let IdProveedor = ProveedorDropDown.text, IdProveedor != "" else{
+            ProveedorDropDown.placeholder = "Coloca el Id del Proveedor"
             return
         }
                 
-        guard let IdDepartamento = IdDepartamentoTextField.text, IdDepartamento != "" else{
-            IdDepartamentoTextField.placeholder = "Coloca el Id del Departamento"
+        guard let IdDepartamento = DepartamentoDropDown.text, IdDepartamento != "" else{
+            DepartamentoDropDown.placeholder = "Coloca el Id del Departamento"
             return
         }
         
@@ -202,7 +268,7 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
             imageString = imageData.base64EncodedString(options: .lineLength64Characters)
         }
         
-        productoModel = Producto(IdProducto: 0, Nombre: Nombre, PrecioUnitario: Double(PrecioUnitario)!, Stock: Int(Stock)!, Descripcion: Descripcion, Proveedor: Proveedor(IdProveedor: Int(IdProveedor)!, Nombre: "", Telefono: ""), Departamento: Departamento(IdDepartamento: Int(IdDepartamento)!, Nombre: "", Area:Area(IdArea: 0, Nombre: "")), Imagen: imageString)
+        productoModel = Producto(IdProducto: 0, Nombre: Nombre, PrecioUnitario: Double(PrecioUnitario)!, Stock: Int(Stock)!, Descripcion: Descripcion, Proveedor: Proveedor(IdProveedor: self.idProveedor!, Nombre: "", Telefono: ""), Departamento: Departamento(IdDepartamento: self.idDepartamento!, Nombre: "", Area:Area(IdArea: 0, Nombre: "")), Imagen: imageString)
         
         if sender.currentTitle == "INSERT"{
             
@@ -221,8 +287,8 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
                 PrecioUnitarioTextField.text = ""
                 StockTextField.text = ""
                 DescripcionTextField.text = ""
-                IdProveddorTextField.text = ""
-                IdDepartamentoTextField.text = ""
+                ProveedorDropDown.text = ""
+                DepartamentoDropDown.text = ""
                 
             }
             else{
@@ -237,15 +303,15 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
                 PrecioUnitarioTextField.text = ""
                 StockTextField.text = ""
                 DescripcionTextField.text = ""
-                IdProveddorTextField.text = ""
-                IdDepartamentoTextField.text = ""
+                ProveedorDropDown.text = ""
+                DepartamentoDropDown.text = ""
                 ImageProducto.image = UIImage(named: "imgProducto")
                 
             }
         }
         else if sender.currentTitle == "UPDATE"{
             
-            productoModel = Producto(IdProducto: self.idProducto!, Nombre: Nombre, PrecioUnitario: Double(PrecioUnitario)!, Stock: Int(Stock)!, Descripcion: Descripcion, Proveedor: Proveedor(IdProveedor: Int(IdProveedor)!, Nombre: "", Telefono: ""), Departamento: Departamento(IdDepartamento: Int(IdDepartamento)!, Nombre: "", Area:Area(IdArea: 0, Nombre: "")), Imagen: imageString)
+            productoModel = Producto(IdProducto: self.idProducto!, Nombre: Nombre, PrecioUnitario: Double(PrecioUnitario)!, Stock: Int(Stock)!, Descripcion: Descripcion, Proveedor: Proveedor(IdProveedor: self.idProveedor!, Nombre: "", Telefono: ""), Departamento: Departamento(IdDepartamento: self.idDepartamento!, Nombre: "", Area:Area(IdArea: 0, Nombre: "")), Imagen: imageString)
             
             let result = productoViewModel.Update(producto: productoModel!)
             
@@ -262,8 +328,8 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
                 PrecioUnitarioTextField.text = ""
                 StockTextField.text = ""
                 DescripcionTextField.text = ""
-                IdProveddorTextField.text = ""
-                IdDepartamentoTextField.text = ""
+                ProveedorDropDown.text = ""
+                DepartamentoDropDown.text = ""
                 ImageProducto.image = UIImage(named: "imgProducto")
                 
             }
@@ -279,8 +345,8 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
                 PrecioUnitarioTextField.text = ""
                 StockTextField.text = ""
                 DescripcionTextField.text = ""
-                IdProveddorTextField.text = ""
-                IdDepartamentoTextField.text = ""
+                ProveedorDropDown.text = ""
+                DepartamentoDropDown.text = ""
                 
             }
             

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BhE-eP-Rhh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="djf-gx-Hsv">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NiW-3B-QEr">
-                                <rect key="frame" x="0.0" y="227.99999999999997" width="393" height="286.33333333333326"/>
+                                <rect key="frame" x="0.0" y="227.99999999999997" width="393" height="328.33333333333326"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="NOMBRE:" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1I8-II-k5R">
                                         <rect key="frame" x="10" y="0.0" width="373" height="42"/>
@@ -56,18 +56,23 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="ID_PROVEEDOR:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="abL-g0-BBT" customClass="JRDropDown">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="PROVEEDOR:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="abL-g0-BBT" customClass="JRDropDown">
                                         <rect key="frame" x="10" y="168" width="373" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="ID_DEPARTAMENTO:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9g-q8-hRr" customClass="JRDropDown">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="COLOCA UN AREA:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apl-5J-O8q" customClass="JRDropDown">
                                         <rect key="frame" x="10" y="210" width="373" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="DEPARTAMENTO:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9g-q8-hRr" customClass="JRDropDown">
+                                        <rect key="frame" x="10" y="252" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BZ4-YW-a9j">
-                                        <rect key="frame" x="154" y="252.00000000000003" width="85.333333333333314" height="34.333333333333343"/>
+                                        <rect key="frame" x="154" y="294" width="85.333333333333314" height="34.333333333333314"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txB-Fg-ClF">
                                                 <rect key="frame" x="0.0" y="0.0" width="85.333333333333329" height="34.333333333333336"/>
@@ -93,11 +98,15 @@
                                     <constraint firstAttribute="trailing" secondItem="Ite-vW-Erx" secondAttribute="trailing" constant="10" id="FnA-Y4-Ktf"/>
                                     <constraint firstItem="Ua9-L5-7go" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="LfQ-5c-vsf"/>
                                     <constraint firstItem="y3E-Ef-fBP" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="UR7-fN-TBv"/>
+                                    <constraint firstAttribute="trailing" secondItem="apl-5J-O8q" secondAttribute="trailing" constant="10" id="a1s-Vx-icW"/>
                                     <constraint firstAttribute="trailing" secondItem="y3E-Ef-fBP" secondAttribute="trailing" constant="10" id="coV-zN-mcB"/>
                                     <constraint firstItem="Ite-vW-Erx" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="fB0-bF-ZdF"/>
+                                    <constraint firstItem="abL-g0-BBT" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="hyU-Gh-neZ"/>
                                     <constraint firstItem="1I8-II-k5R" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="ifL-7x-88p"/>
+                                    <constraint firstAttribute="trailing" secondItem="abL-g0-BBT" secondAttribute="trailing" constant="10" id="jJP-fM-PIF"/>
                                     <constraint firstItem="j9g-q8-hRr" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="pyU-Xt-b8c"/>
                                     <constraint firstItem="abL-g0-BBT" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="vdx-rT-NiM"/>
+                                    <constraint firstItem="apl-5J-O8q" firstAttribute="leading" secondItem="NiW-3B-QEr" secondAttribute="leading" constant="10" id="yKq-SW-yX4"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -118,12 +127,13 @@
                     <navigationItem key="navigationItem" id="rIE-QT-F6E"/>
                     <connections>
                         <outlet property="ActionButton" destination="txB-Fg-ClF" id="Goy-36-Rxw"/>
+                        <outlet property="AreaDropDown" destination="apl-5J-O8q" id="zuP-Dg-KdE"/>
+                        <outlet property="DepartamentoDropDown" destination="j9g-q8-hRr" id="hnI-kL-x3r"/>
                         <outlet property="DescripcionTextField" destination="y3E-Ef-fBP" id="BQ6-Fv-yjs"/>
-                        <outlet property="IdDepartamentoTextField" destination="j9g-q8-hRr" id="jKQ-88-ToO"/>
-                        <outlet property="IdProveddorTextField" destination="abL-g0-BBT" id="Ayo-ZA-l0n"/>
                         <outlet property="ImageProducto" destination="irH-Hg-muH" id="w7S-Uo-ELx"/>
                         <outlet property="NombreTextField" destination="1I8-II-k5R" id="9tV-Gt-rAA"/>
                         <outlet property="PrecioUnitarioTextField" destination="Ite-vW-Erx" id="Mto-5f-j9p"/>
+                        <outlet property="ProveedorDropDown" destination="abL-g0-BBT" id="uvr-0E-KL5"/>
                         <outlet property="StockTextField" destination="Ua9-L5-7go" id="io2-H4-06b"/>
                     </connections>
                 </viewController>
@@ -619,7 +629,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="ID_AREA" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I6b-rg-GfB">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="AREA:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I6b-rg-GfB" customClass="JRDropDown">
                                         <rect key="frame" x="10" y="150" width="373" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Qsv-1i-LdA"/>
@@ -664,7 +674,7 @@
                     <navigationItem key="navigationItem" id="SCZ-yG-4Wc"/>
                     <connections>
                         <outlet property="ActionButton" destination="Uoo-Xe-dav" id="tco-5g-pMc"/>
-                        <outlet property="IdAreaLabel" destination="I6b-rg-GfB" id="CrE-lM-q5Y"/>
+                        <outlet property="AreaDropDown" destination="I6b-rg-GfB" id="WgV-RH-rOD"/>
                         <outlet property="NombreDepartamentoLabel" destination="a0c-8J-yIS" id="Apa-LX-gf9"/>
                     </connections>
                 </viewController>
