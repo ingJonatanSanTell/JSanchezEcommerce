@@ -78,7 +78,7 @@
                 <outlet property="ImagenDepartamento" destination="BJG-WE-lee" id="dKF-Mf-9S9"/>
                 <outlet property="NombreDepartamentoLabel" destination="Eta-8A-XL4" id="Vti-nQ-QsW"/>
             </connections>
-            <point key="canvasLocation" x="-37.404580152671755" y="20.422535211267608"/>
+            <point key="canvasLocation" x="179" y="21"/>
         </tableViewCell>
     </objects>
     <resources>

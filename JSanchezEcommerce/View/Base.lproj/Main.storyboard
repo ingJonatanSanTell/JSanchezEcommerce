@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NiW-3B-QEr">
-                                <rect key="frame" x="0.0" y="227.99999999999997" width="393" height="328.33333333333326"/>
+                                <rect key="frame" x="0.0" y="228" width="393" height="541"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="NOMBRE:" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1I8-II-k5R">
                                         <rect key="frame" x="10" y="0.0" width="373" height="42"/>
@@ -42,37 +42,37 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="PRECIO UNITARIO: " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ite-vW-Erx">
-                                        <rect key="frame" x="10" y="42" width="373" height="42"/>
+                                        <rect key="frame" x="10" y="72.333333333333314" width="373" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="STOCK:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ua9-L5-7go">
-                                        <rect key="frame" x="10" y="84" width="373" height="42"/>
+                                        <rect key="frame" x="10" y="144.66666666666669" width="373" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="DESCRIPCION:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y3E-Ef-fBP">
-                                        <rect key="frame" x="10" y="126" width="373" height="42"/>
+                                        <rect key="frame" x="10" y="217" width="373" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="PROVEEDOR:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="abL-g0-BBT" customClass="JRDropDown">
-                                        <rect key="frame" x="10" y="168" width="373" height="42"/>
+                                        <rect key="frame" x="10" y="289.66666666666663" width="373" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="COLOCA UN AREA:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apl-5J-O8q" customClass="JRDropDown">
-                                        <rect key="frame" x="10" y="210" width="373" height="42"/>
+                                        <rect key="frame" x="10" y="362" width="373" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="DEPARTAMENTO:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9g-q8-hRr" customClass="JRDropDown">
-                                        <rect key="frame" x="10" y="252" width="373" height="42"/>
+                                        <rect key="frame" x="10" y="434.33333333333337" width="373" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BZ4-YW-a9j">
-                                        <rect key="frame" x="154" y="294" width="85.333333333333314" height="34.333333333333314"/>
+                                        <rect key="frame" x="154" y="506.66666666666657" width="85.333333333333314" height="34.333333333333314"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txB-Fg-ClF">
                                                 <rect key="frame" x="0.0" y="0.0" width="85.333333333333329" height="34.333333333333336"/>
@@ -260,6 +260,9 @@
                         <segue destination="Ll8-iG-QGC" kind="relationship" relationship="viewControllers" id="MfB-wh-TGz"/>
                         <segue destination="Vay-k0-MEc" kind="relationship" relationship="viewControllers" id="aRT-vN-Gdi"/>
                         <segue destination="vTw-OO-8u7" kind="relationship" relationship="viewControllers" id="kxM-HC-M4c"/>
+                        <segue destination="2qD-OB-bL5" kind="relationship" relationship="viewControllers" id="oDx-pE-1HA"/>
+                        <segue destination="8IA-TL-Gbs" kind="relationship" relationship="viewControllers" id="Xd9-0R-Olp"/>
+                        <segue destination="odf-k5-vx5" kind="relationship" relationship="viewControllers" id="ay1-1F-NaV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLl-7u-dEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -760,6 +763,84 @@
             </objects>
             <point key="canvasLocation" x="-2917" y="1770"/>
         </scene>
+        <!--VENTAS-->
+        <scene sceneID="0lP-ND-3s7">
+            <objects>
+                <collectionViewController id="2qD-OB-bL5" customClass="GetAllAreaCollectionViewController" customModule="JSanchezEcommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="mbZ-IX-m9L">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ykc-Ra-Y2F">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="2qD-OB-bL5" id="AD0-Gu-rIQ"/>
+                            <outlet property="delegate" destination="2qD-OB-bL5" id="Pet-MA-Hxe"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="VENTAS" image="cart.fill" catalog="system" id="69k-9g-SKf"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-a4-Qyj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1713" y="2474"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="eji-gg-0WY">
+            <objects>
+                <collectionViewController id="8IA-TL-Gbs" customClass="GetByIdDepartamentosCollectionViewController" customModule="JSanchezEcommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="KkZ-4U-2SC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U4x-Av-5Pd">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="8IA-TL-Gbs" id="qgu-5j-fOY"/>
+                            <outlet property="delegate" destination="8IA-TL-Gbs" id="FTo-b6-7Yx"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="bai-Qd-CYe"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PBY-uH-eNd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="2480"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="y7k-IT-SHV">
+            <objects>
+                <collectionViewController id="odf-k5-vx5" customClass="GetByIdProductosCollectionViewController" customModule="JSanchezEcommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nzH-ru-fY6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Quy-kg-9T6">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="odf-k5-vx5" id="1yV-b0-0Nv"/>
+                            <outlet property="delegate" destination="odf-k5-vx5" id="M5h-Qg-WRL"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="B40-X0-NTU"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Og-LN-gqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="55" y="2444"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="thg-UT-fZ5"/>
@@ -770,6 +851,7 @@
     <resources>
         <image name="Fondo" width="864" height="1920"/>
         <image name="basket" catalog="system" width="128" height="108"/>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="imgUser" width="512" height="512"/>
         <image name="pencil.tip.crop.circle.badge.plus" catalog="system" width="128" height="114"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
