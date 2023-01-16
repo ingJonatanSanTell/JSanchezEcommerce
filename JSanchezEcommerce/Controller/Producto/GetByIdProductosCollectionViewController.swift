@@ -102,14 +102,18 @@ class GetByIdProductosCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    
     @objc func buttonAction(sender : UIButton){
         
         let index = IndexPath(row: sender.tag, section: 0)
         sender.backgroundColor = UIColor.red
         
+        self.performSegue(withIdentifier: "carritoSegue", sender: self)
+        
         let alertController  = UIAlertController(title: "Agregado a tu Carrito", message: "Nombre: \(productos[index.row].Nombre) \n IdProducto: \(productos[index.row].IdProducto)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
         self.present(alertController, animated: true, completion: nil)
+        
     }
     
 

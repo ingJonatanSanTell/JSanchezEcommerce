@@ -24,7 +24,7 @@ class GetByIdDepartamentosCollectionViewController: UICollectionViewController {
         
         loadData()
         
-        self.collectionView!.register(UINib(nibName: "DepartamentoCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "DepartamentoCard")
+        self.collectionView!.register(UINib(nibName: "AreasCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "AreaCard")
 
         // Do any additional setup after loading the view.
     }
@@ -65,10 +65,10 @@ class GetByIdDepartamentosCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DepartamentoCard", for: indexPath) as! DepartamentoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AreaCard", for: indexPath) as! AreasCollectionViewCell
         
-        cell.DepartamentoLabel.text = departamentos[indexPath.row].Nombre
-        cell.ImagenDepartamento.image = UIImage(systemName: "tablecells")
+        cell.NombreAreaLabel.text = departamentos[indexPath.row].Nombre
+        cell.ImagenArea.image = UIImage(systemName: "tablecells")
     
         // Configure the cell
     

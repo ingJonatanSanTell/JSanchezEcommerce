@@ -930,10 +930,35 @@
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="B40-X0-NTU"/>
                     <navigationItem key="navigationItem" id="7yr-kw-QtF"/>
+                    <connections>
+                        <segue destination="Bnv-9Q-8Gx" kind="show" identifier="carritoSegue" id="hMR-yy-mih"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Og-LN-gqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="55" y="2444"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZBv-Gx-Ozt">
+            <objects>
+                <viewController id="Bnv-9Q-8Gx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KCd-Kv-550">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgProducto" translatesAutoresizingMaskIntoConstraints="NO" id="Mgc-bf-yyp">
+                                <rect key="frame" x="76" y="320" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rw6-4b-D4B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MyM-Hg-cPW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="huH-mN-kvZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1164" y="2471"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -948,6 +973,7 @@
         <image name="basket" catalog="system" width="128" height="108"/>
         <image name="cart.circle" catalog="system" width="128" height="123"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="imgProducto" width="512" height="512"/>
         <image name="imgUser" width="512" height="512"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
         <image name="pencil.tip.crop.circle.badge.plus" catalog="system" width="128" height="114"/>
