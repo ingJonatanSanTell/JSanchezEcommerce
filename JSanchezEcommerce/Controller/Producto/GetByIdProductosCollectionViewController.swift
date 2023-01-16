@@ -1,5 +1,5 @@
 //
-//  GetAllAreaCollectionViewController.swift
+//  GetAllProductCollectionViewController.swift
 //  JSanchezEcommerce
 //
 //  Created by MacBookMBA4 on 12/01/23.
@@ -9,36 +9,53 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class GetAllAreaCollectionViewController: UICollectionViewController {
+class GetByIdProductosCollectionViewController: UICollectionViewController {
     
-    var areas = [Area]()
+    var idDepartamento : Int! = nil
+    var busquedaProducto : String! = nil
     
-    let areaViewModel = AreaViewModel()
-
+    var productos = [Producto]()
+    let productoViewModel = ProductoViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
         
+        navigationController?.isNavigationBarHidden = false
+        
         loadData()
-        self.collectionView!.register(UINib(nibName: "AreasCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "AreaCard")
-
+        
+        self.collectionView!.register(UINib(nibName: "ProductosCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "ProductoCard")
+        
         // Do any additional setup after loading the view.
     }
     
-    
     func loadData(){
-        let result = areaViewModel.GetAll()
         
-        if result.Correct{
-            areas = result.Objects! as! [Area]
-            collectionView.reloadData()
+        if self.idDepartamento == nil {
+            
+            let result = productoViewModel.GetByNombreProducto(self.busquedaProducto)
+            
+            if result.Correct{
+                productos = result.Objects! as! [Producto]
+                collectionView.reloadData()
+            }
+            
         }
-        else{
-            //alerta
+        else if self.busquedaProducto == nil {
+            
+            let result = productoViewModel.GetByIdDepartamento(self.idDepartamento)
+            
+            if result.Correct{
+                productos = result.Objects! as! [Producto]
+                collectionView.reloadData()
+            }
+            
         }
     }
 
@@ -62,18 +79,39 @@ class GetAllAreaCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return areas.count
+        return productos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AreaCard", for: indexPath) as! AreasCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductoCard", for: indexPath) as! ProductosCollectionViewCell
         
-        //cell.delegate = self
-        cell.NombreAreaLabel.text = areas[indexPath.row].Nombre
-        cell.ImagenArea.image = UIImage(systemName: "list.bullet.rectangle")
+        cell.NombreProductoLabel.text = productos[indexPath.row].Nombre
+        cell.PrecioProductolabel.text = "$"+(String(productos[indexPath.row].PrecioUnitario))
+        
+        if productos[indexPath.row].Imagen == ""{
+            cell.ImagenProducto.image = UIImage(named: "imgProducto")
+        }
+        else{
+            cell.ImagenProducto.image = UIImage(data: Data(base64Encoded: productos[indexPath.row].Imagen, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!)
+        }
+    
+        cell.AgregarCarritoButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        // agregando como `tag` el indice del `row`...
+        cell.AgregarCarritoButton.tag = indexPath.row
     
         return cell
     }
+    
+    @objc func buttonAction(sender : UIButton){
+        
+        let index = IndexPath(row: sender.tag, section: 0)
+        sender.backgroundColor = UIColor.red
+        
+        let alertController  = UIAlertController(title: "Agregado a tu Carrito", message: "Nombre: \(productos[index.row].Nombre) \n IdProducto: \(productos[index.row].IdProducto)", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 
     // MARK: UICollectionViewDelegate
 
@@ -108,29 +146,29 @@ class GetAllAreaCollectionViewController: UICollectionViewController {
 
 }
 
-extension GetAllAreaCollectionViewController : UICollectionViewDelegateFlowLayout{
+extension GetByIdProductosCollectionViewController : UICollectionViewDelegateFlowLayout{
     
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        let cellSize = CGSize(width: 150, height: 75)
+        let cellSize = CGSize(width: 500, height: 300)
         return cellSize
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 20
+        return 50
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 20
+        return 50
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        let sectionInset = UIEdgeInsets(top: 10, left: 35, bottom: 0, right: 35)
+        let sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
         return sectionInset
     }
     

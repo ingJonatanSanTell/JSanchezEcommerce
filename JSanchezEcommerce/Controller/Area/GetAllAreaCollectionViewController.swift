@@ -1,5 +1,5 @@
 //
-//  GetAllProductCollectionViewController.swift
+//  GetAllAreaCollectionViewController.swift
 //  JSanchezEcommerce
 //
 //  Created by MacBookMBA4 on 12/01/23.
@@ -9,32 +9,34 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class GetByIdProductosCollectionViewController: UICollectionViewController {
+class GetAllAreaCollectionViewController: UICollectionViewController {
     
-    
-    var productos = [Producto]()
-    let productoViewModel = ProductoViewModel()
-    
+    var areas = [Area]()
+    var idArea : Int! = nil
+    let areaViewModel = AreaViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
+        navigationController?.isNavigationBarHidden = false
+        
         loadData()
-        
-        self.collectionView!.register(UINib(nibName: "ProductosCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "ProductoCard")
-        
+        self.collectionView!.register(UINib(nibName: "AreasCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "AreaCard")
+
         // Do any additional setup after loading the view.
     }
     
+    
+    
     func loadData(){
-        let result = productoViewModel.GetAll()
+        let result = areaViewModel.GetAll()
         
         if result.Correct{
-            productos = result.Objects! as! [Producto]
+            areas = result.Objects! as! [Area]
             collectionView.reloadData()
         }
         else{
@@ -62,27 +64,25 @@ class GetByIdProductosCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return productos.count
+        return areas.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductoCard", for: indexPath) as! ProductosCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AreaCard", for: indexPath) as! AreasCollectionViewCell
         
-        cell.NombreProductoLabel.text = productos[indexPath.row].Nombre
-        cell.PrecioProductolabel.text = String(productos[indexPath.row].PrecioUnitario)
-        
-        if productos[indexPath.row].Imagen == ""{
-            cell.ImagenProducto.image = UIImage(named: "imgProducto")
-        }
-        else{
-            cell.ImagenProducto.image = UIImage(data: Data(base64Encoded: productos[indexPath.row].Imagen, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!)
-        }
-    
-        // Configure the cell
+        //cell.delegate = self
+        cell.NombreAreaLabel.text = areas[indexPath.row].Nombre
+        cell.ImagenArea.image = UIImage(systemName: "list.bullet.rectangle")
     
         return cell
     }
     
+    //delegado segue
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.idArea = areas[indexPath.row].IdArea
+        self.performSegue(withIdentifier: "GetByIdDepartamento", sender: self)
+    }
 
     // MARK: UICollectionViewDelegate
 
@@ -117,31 +117,37 @@ class GetByIdProductosCollectionViewController: UICollectionViewController {
 
 }
 
-extension GetByIdProductosCollectionViewController : UICollectionViewDelegateFlowLayout{
+extension GetAllAreaCollectionViewController : UICollectionViewDelegateFlowLayout{
     
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        let cellSize = CGSize(width: 500, height: 300)
+        let cellSize = CGSize(width: 150, height: 75)
         return cellSize
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 50
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
     {
-        return 50
+        return 20
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        let sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
+        let sectionInset = UIEdgeInsets(top: 10, left: 35, bottom: 0, right: 35)
         return sectionInset
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GetByIdDepartamento"{
+            let departamentoById = segue.destination as! GetByIdDepartamentosCollectionViewController
+            departamentoById.idArea = self.idArea
+        }
+    }
     
 }

@@ -12,16 +12,16 @@ private let reuseIdentifier = "Cell"
 class GetByIdDepartamentosCollectionViewController: UICollectionViewController {
     
     var departamentos = [Departamento]()
+    var idArea : Int! = nil
+    var idDepartamento : Int! = nil
     
     let departamentoViewModel = DepartamentoViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
+        navigationController?.isNavigationBarHidden = false
+        
         loadData()
         
         self.collectionView!.register(UINib(nibName: "DepartamentoCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "DepartamentoCard")
@@ -30,7 +30,7 @@ class GetByIdDepartamentosCollectionViewController: UICollectionViewController {
     }
     
     func loadData(){
-        let result = departamentoViewModel.GetAll()
+        let result = departamentoViewModel.GetByIdArea(idArea)
         
         if result.Correct{
             departamentos = result.Objects! as! [Departamento]
@@ -73,6 +73,13 @@ class GetByIdDepartamentosCollectionViewController: UICollectionViewController {
         // Configure the cell
     
         return cell
+    }
+    
+    //delegado segue
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.idDepartamento = departamentos[indexPath.row].IdDepartamento
+        self.performSegue(withIdentifier: "GetByIdProducto", sender: self)
     }
 
     // MARK: UICollectionViewDelegate
@@ -134,4 +141,13 @@ extension GetByIdDepartamentosCollectionViewController : UICollectionViewDelegat
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GetByIdProducto"{
+            let productoById = segue.destination as! GetByIdProductosCollectionViewController
+            productoById.idDepartamento = self.idDepartamento
+        }
+    }
 }
+
+
+

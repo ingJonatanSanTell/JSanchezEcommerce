@@ -260,9 +260,7 @@
                         <segue destination="Ll8-iG-QGC" kind="relationship" relationship="viewControllers" id="MfB-wh-TGz"/>
                         <segue destination="Vay-k0-MEc" kind="relationship" relationship="viewControllers" id="aRT-vN-Gdi"/>
                         <segue destination="vTw-OO-8u7" kind="relationship" relationship="viewControllers" id="kxM-HC-M4c"/>
-                        <segue destination="2qD-OB-bL5" kind="relationship" relationship="viewControllers" id="oDx-pE-1HA"/>
-                        <segue destination="8IA-TL-Gbs" kind="relationship" relationship="viewControllers" id="Xd9-0R-Olp"/>
-                        <segue destination="odf-k5-vx5" kind="relationship" relationship="viewControllers" id="ay1-1F-NaV"/>
+                        <segue destination="ffq-cm-Zzd" kind="relationship" relationship="viewControllers" id="ANA-rj-bon"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLl-7u-dEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -763,6 +761,96 @@
             </objects>
             <point key="canvasLocation" x="-2917" y="1770"/>
         </scene>
+        <!--VENTA-->
+        <scene sceneID="Tw5-md-UFT">
+            <objects>
+                <navigationController id="ffq-cm-Zzd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="VENTA" image="cart.circle" catalog="system" id="mEu-WP-Uvq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NX0-tp-kF6">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kfF-e6-VkR" kind="relationship" relationship="rootViewController" id="WYS-fC-QET"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nqy-TC-Zdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2436" y="2519"/>
+        </scene>
+        <!--Get All Area View Controller-->
+        <scene sceneID="qQD-aJ-67w">
+            <objects>
+                <viewController id="kfF-e6-VkR" customClass="GetAllAreaViewController" customModule="JSanchezEcommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2ak-Wr-ThC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F9U-wc-cXh">
+                                <rect key="frame" x="0.0" y="183" width="393" height="586"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mtz-oy-dX2">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2ak-Wr-ThC" id="ihH-l0-lxv"/>
+                                    <outlet property="delegate" destination="2ak-Wr-ThC" id="Emd-4j-r0L"/>
+                                </connections>
+                            </collectionView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Buscar Producto" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4J-Yh-wDi">
+                                <rect key="frame" x="35" y="113" width="285" height="40"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="AvY-xI-t3G"/>
+                                    <constraint firstAttribute="height" constant="40" id="wz2-06-Cer"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UY-V8-Qbx">
+                                <rect key="frame" x="330" y="113" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="K3B-BT-M7f"/>
+                                    <constraint firstAttribute="height" constant="40" id="SKp-KH-AUX"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="BuscarProductoButton:" destination="kfF-e6-VkR" eventType="touchUpInside" id="Pdp-Zk-iV5"/>
+                                    <segue destination="odf-k5-vx5" kind="show" identifier="BuscarProductoSegue" id="yng-WI-xL3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qIG-fK-LNa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b4J-Yh-wDi" firstAttribute="leading" secondItem="qIG-fK-LNa" secondAttribute="leading" constant="35" id="2Fc-Hu-4DX"/>
+                            <constraint firstItem="qIG-fK-LNa" firstAttribute="bottom" secondItem="F9U-wc-cXh" secondAttribute="bottom" id="57M-jM-Z1v"/>
+                            <constraint firstItem="9UY-V8-Qbx" firstAttribute="leading" secondItem="b4J-Yh-wDi" secondAttribute="trailing" constant="10" id="CjV-mH-qHF"/>
+                            <constraint firstItem="F9U-wc-cXh" firstAttribute="top" secondItem="b4J-Yh-wDi" secondAttribute="bottom" constant="30" id="Fyt-PE-hrx"/>
+                            <constraint firstItem="b4J-Yh-wDi" firstAttribute="top" secondItem="qIG-fK-LNa" secondAttribute="top" constant="10" id="HKO-41-UOS"/>
+                            <constraint firstItem="F9U-wc-cXh" firstAttribute="leading" secondItem="qIG-fK-LNa" secondAttribute="leading" id="aQY-w7-Nb5"/>
+                            <constraint firstItem="F9U-wc-cXh" firstAttribute="centerX" secondItem="2ak-Wr-ThC" secondAttribute="centerX" id="iFL-pO-TM4"/>
+                            <constraint firstItem="9UY-V8-Qbx" firstAttribute="top" secondItem="qIG-fK-LNa" secondAttribute="top" constant="10" id="pQj-YO-0g4"/>
+                            <constraint firstItem="qIG-fK-LNa" firstAttribute="trailing" secondItem="F9U-wc-cXh" secondAttribute="trailing" id="uQ7-2c-E9g"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="95T-UI-a3z"/>
+                    <connections>
+                        <outlet property="AreasCollectionView" destination="F9U-wc-cXh" id="ZSd-j0-hae"/>
+                        <outlet property="BuscarProductoLabel" destination="b4J-Yh-wDi" id="M6C-Wd-1SL"/>
+                        <segue destination="8IA-TL-Gbs" kind="show" identifier="GetByIdDepartamento" id="QNf-TU-FTN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WOn-pd-kNB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1663.3587786259541" y="2223.9436619718313"/>
+        </scene>
         <!--VENTAS-->
         <scene sceneID="0lP-ND-3s7">
             <objects>
@@ -784,10 +872,11 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="VENTAS" image="cart.fill" catalog="system" id="69k-9g-SKf"/>
+                    <navigationItem key="navigationItem" id="SEs-i0-Cen"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-a4-Qyj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1713" y="2474"/>
+            <point key="canvasLocation" x="-1631" y="3059"/>
         </scene>
         <!--Item-->
         <scene sceneID="eji-gg-0WY">
@@ -810,10 +899,14 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="bai-Qd-CYe"/>
+                    <navigationItem key="navigationItem" id="jke-hT-dF6"/>
+                    <connections>
+                        <segue destination="odf-k5-vx5" kind="show" identifier="GetByIdProducto" id="wEq-kI-17A"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBY-uH-eNd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-810" y="2480"/>
+            <point key="canvasLocation" x="-802" y="2773"/>
         </scene>
         <!--Item-->
         <scene sceneID="y7k-IT-SHV">
@@ -836,6 +929,7 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="B40-X0-NTU"/>
+                    <navigationItem key="navigationItem" id="7yr-kw-QtF"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Og-LN-gqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -843,6 +937,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="yng-WI-xL3"/>
         <segue reference="thg-UT-fZ5"/>
         <segue reference="j0E-2i-wAH"/>
         <segue reference="uXf-HM-IAE"/>
@@ -851,8 +946,10 @@
     <resources>
         <image name="Fondo" width="864" height="1920"/>
         <image name="basket" catalog="system" width="128" height="108"/>
+        <image name="cart.circle" catalog="system" width="128" height="123"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="imgUser" width="512" height="512"/>
+        <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
         <image name="pencil.tip.crop.circle.badge.plus" catalog="system" width="128" height="114"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>

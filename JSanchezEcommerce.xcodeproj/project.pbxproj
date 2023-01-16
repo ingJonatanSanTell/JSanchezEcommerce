@@ -52,6 +52,7 @@
 		E3C0C159296F215100503381 /* ProveedorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C0C158296F215100503381 /* ProveedorViewModel.swift */; };
 		E3C0C15B296F369A00503381 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C0C15A296F369A00503381 /* iOSDropDown.framework */; };
 		E3C0C15E296F447100503381 /* AreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C0C15D296F447100503381 /* AreaViewModel.swift */; };
+		E3C6E84A2971E16D003D33EB /* GetAllAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C6E8492971E16D003D33EB /* GetAllAreaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		E3C0C158296F215100503381 /* ProveedorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProveedorViewModel.swift; sourceTree = "<group>"; };
 		E3C0C15A296F369A00503381 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C0C15D296F447100503381 /* AreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewModel.swift; sourceTree = "<group>"; };
+		E3C6E8492971E16D003D33EB /* GetAllAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllAreaViewController.swift; sourceTree = "<group>"; };
 		FD43E8199C7957640028E010 /* Pods_JSanchezEcommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSanchezEcommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,15 +144,26 @@
 		E3219D22295F53F100EEF1B3 /* Producto */ = {
 			isa = PBXGroup;
 			children = (
+				E3A2F37F297088F2007124BA /* GetByIdProductosCollectionViewController.swift */,
 				E38D26F5295BC21400FFA829 /* ProductoViewController.swift */,
 				E3219D20295F53D500EEF1B3 /* GetALLTableViewController.swift */,
 			);
 			path = Producto;
 			sourceTree = "<group>";
 		};
+		E32389122975B9F100260D92 /* Area */ = {
+			isa = PBXGroup;
+			children = (
+				E3C6E8492971E16D003D33EB /* GetAllAreaViewController.swift */,
+				E3A2F37D297087AA007124BA /* GetAllAreaCollectionViewController.swift */,
+			);
+			path = Area;
+			sourceTree = "<group>";
+		};
 		E33DBE3D29676AF600D2BCC8 /* Producto */ = {
 			isa = PBXGroup;
 			children = (
+				E3AB819629707FE800A0843A /* ProductosCollectionViewCell.swift */,
 				E351808B295CD44B00488241 /* ProductoViewModel.swift */,
 				E3219D1C295F51A700EEF1B3 /* ProductoTableViewCell.swift */,
 			);
@@ -160,6 +173,7 @@
 		E33DBE3E29676B1500D2BCC8 /* Departamento */ = {
 			isa = PBXGroup;
 			children = (
+				E3AB818E29706D7D00A0843A /* DepartamentoCollectionViewCell.swift */,
 				E325FBE52967430D00656F3C /* DepartamentoViewModel.swift */,
 				E325FBDD29673A0500656F3C /* DepartamentoTableViewCell.swift */,
 			);
@@ -187,6 +201,7 @@
 		E34B2C2029673904007002A9 /* Departamento */ = {
 			isa = PBXGroup;
 			children = (
+				E3A2F38129708C18007124BA /* GetByIdDepartamentosCollectionViewController.swift */,
 				E34B2C1E296738F0007002A9 /* DepartamentoViewController.swift */,
 				E325FBE329673AB500656F3C /* GetALLDepartamentoTableViewController.swift */,
 			);
@@ -254,9 +269,6 @@
 		E38D2709295BC23700FFA829 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E3AB819229707F5E00A0843A /* AreasCollectionViewCell.swift */,
-				E3AB819629707FE800A0843A /* ProductosCollectionViewCell.swift */,
-				E3AB818E29706D7D00A0843A /* DepartamentoCollectionViewCell.swift */,
 				E3C0C15C296F445C00503381 /* Area */,
 				E3C0C157296F20AD00503381 /* Proveedor */,
 				E33DBE3F29676B6100D2BCC8 /* Usuario */,
@@ -285,9 +297,7 @@
 		E38D270B295BC25C00FFA829 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E3A2F38129708C18007124BA /* GetByIdDepartamentosCollectionViewController.swift */,
-				E3A2F37F297088F2007124BA /* GetByIdProductosCollectionViewController.swift */,
-				E3A2F37D297087AA007124BA /* GetAllAreaCollectionViewController.swift */,
+				E32389122975B9F100260D92 /* Area */,
 				E364FB82296CC55E00ED365C /* Login */,
 				E33DBE4F29679EDD00D2BCC8 /* User */,
 				E34B2C2029673904007002A9 /* Departamento */,
@@ -307,6 +317,7 @@
 		E3C0C15C296F445C00503381 /* Area */ = {
 			isa = PBXGroup;
 			children = (
+				E3AB819229707F5E00A0843A /* AreasCollectionViewCell.swift */,
 				E3C0C15D296F447100503381 /* AreaViewModel.swift */,
 			);
 			path = Area;
@@ -454,6 +465,7 @@
 				E325FBDF29673A0500656F3C /* DepartamentoTableViewCell.swift in Sources */,
 				E364FB84296CC58300ED365C /* LoginViewController.swift in Sources */,
 				E325FBE429673AB500656F3C /* GetALLDepartamentoTableViewController.swift in Sources */,
+				E3C6E84A2971E16D003D33EB /* GetAllAreaViewController.swift in Sources */,
 				E33DBE4629676FBE00D2BCC8 /* UsuarioViewModel.swift in Sources */,
 				E3518082295CCFD600488241 /* Producto.swift in Sources */,
 				E3518084295CCFEA00488241 /* Result.swift in Sources */,

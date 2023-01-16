@@ -14,6 +14,8 @@ class ProductosCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var PrecioProductolabel: UILabel!
     @IBOutlet weak var NombreProductoLabel: UILabel!
     
+    @IBOutlet weak var AgregarCarritoButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
