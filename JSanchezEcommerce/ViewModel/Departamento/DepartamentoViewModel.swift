@@ -183,7 +183,7 @@ class DepartamentoViewModel{
                     departamento.Area = Area()
                     departamento.Area?.IdArea = Int(sqlite3_column_int(statement, 2))
                     
-                    result.Object = departamento
+                    result.Objects?.append(departamento)
                 }
                 result.Correct = true
             }

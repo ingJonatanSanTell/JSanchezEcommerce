@@ -12,10 +12,13 @@ private let reuseIdentifier = "Cell"
 class GetByIdProductosCollectionViewController: UICollectionViewController {
     
     var idDepartamento : Int! = nil
+    var idProducto : Int! = nil
     var busquedaProducto : String! = nil
     
     var productos = [Producto]()
     let productoViewModel = ProductoViewModel()
+    
+    let ventaProductoViewModel = VentaProductosViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,18 +105,43 @@ class GetByIdProductosCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    //delegado segue
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.idProducto = productos[indexPath.row].IdProducto
+        self.performSegue(withIdentifier: "detalleProductoSegue", sender: self)
+    }
+    
     
     @objc func buttonAction(sender : UIButton){
         
         let index = IndexPath(row: sender.tag, section: 0)
         sender.backgroundColor = UIColor.red
         
-        self.performSegue(withIdentifier: "carritoSegue", sender: self)
         
-        let alertController  = UIAlertController(title: "Agregado a tu Carrito", message: "Nombre: \(productos[index.row].Nombre) \n IdProducto: \(productos[index.row].IdProducto)", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
-        self.present(alertController, animated: true, completion: nil)
         
+        
+        //AGREGAR EL ID A LA TABLA CARRITO(VENTAPRODUCTO)
+        if ventaProductoViewModel.Add(idProducto: productos[index.row].IdProducto, cantidad: 1).Correct {
+            
+            //alert
+            let alertController  = UIAlertController(title: "Agregado a tu Carrito", message: "Nombre: \(productos[index.row].Nombre) \n Cantidad: 1", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ir a mi Carrito", style: .default) { (action) in
+               
+                self.performSegue(withIdentifier: "carritoSegue", sender: self)
+            }
+            
+            alertController.addAction(ok)
+            alertController.addAction(UIAlertAction(title: "Seguir Comprando", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else{
+            //alert error
+            let alertController  = UIAlertController(title: "ERROR", message: "No se pudo agregar el producto a tu carrito", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
     }
     
 
@@ -174,6 +202,15 @@ extension GetByIdProductosCollectionViewController : UICollectionViewDelegateFlo
     {
         let sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
         return sectionInset
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "detalleProductoSegue"{
+            
+            let detalleProducto = segue.destination as! DetalleProductoViewController
+            detalleProducto.idProducto = self.idProducto
+        }
     }
     
     

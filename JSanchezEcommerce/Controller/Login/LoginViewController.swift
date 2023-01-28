@@ -19,13 +19,16 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.isNavigationBarHidden = true
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func LoginButton(_ sender: UIButton) {
         
+        
         if let email = EmailLabel.text, let password = PasswordLabel.text{
+            
             
             Auth.auth().signIn(withEmail: email, password: password){ [self] (result, error) in
                 

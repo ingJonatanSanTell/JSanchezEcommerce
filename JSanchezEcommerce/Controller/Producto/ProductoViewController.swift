@@ -74,6 +74,7 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func LoadData(){
+        
         let resultProveedor = proveedorViewModel.GetAllProveedor()
         if resultProveedor.Correct{
             for proveedor in resultProveedor.Objects as! [Proveedor]{
@@ -268,7 +269,7 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
             imageString = imageData.base64EncodedString(options: .lineLength64Characters)
         }
         
-        productoModel = Producto(IdProducto: 0, Nombre: Nombre, PrecioUnitario: Double(PrecioUnitario)!, Stock: Int(Stock)!, Descripcion: Descripcion, Proveedor: Proveedor(IdProveedor: self.idProveedor!, Nombre: "", Telefono: ""), Departamento: Departamento(IdDepartamento: self.idDepartamento!, Nombre: "", Area:Area(IdArea: 0, Nombre: "")), Imagen: imageString)
+        productoModel = Producto(IdProducto: 0, Nombre: Nombre, PrecioUnitario: Double(PrecioUnitario)!, Stock: Int(Stock)!, Descripcion: Descripcion, Proveedor: Proveedor(IdProveedor: self.idProveedor!, Nombre: "", Telefono: ""), Departamento: Departamento(IdDepartamento: self.idDepartamento!, Nombre: "", Area:Area(IdArea: 0, Nombre: "")), Imagen: imageString, productos: [Producto()])
         
         if sender.currentTitle == "INSERT"{
             
@@ -311,7 +312,7 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         else if sender.currentTitle == "UPDATE"{
             
-            productoModel = Producto(IdProducto: self.idProducto!, Nombre: Nombre, PrecioUnitario: Double(PrecioUnitario)!, Stock: Int(Stock)!, Descripcion: Descripcion, Proveedor: Proveedor(IdProveedor: self.idProveedor!, Nombre: "", Telefono: ""), Departamento: Departamento(IdDepartamento: self.idDepartamento!, Nombre: "", Area:Area(IdArea: 0, Nombre: "")), Imagen: imageString)
+            productoModel = Producto(IdProducto: self.idProducto!, Nombre: Nombre, PrecioUnitario: Double(PrecioUnitario)!, Stock: Int(Stock)!, Descripcion: Descripcion, Proveedor: Proveedor(IdProveedor: self.idProveedor!, Nombre: "", Telefono: ""), Departamento: Departamento(IdDepartamento: self.idDepartamento!, Nombre: "", Area:Area(IdArea: 0, Nombre: "")), Imagen: imageString, productos: [Producto()])
             
             let result = productoViewModel.Update(producto: productoModel!)
             
@@ -385,6 +386,7 @@ class ProductoViewController: UIViewController, UIImagePickerControllerDelegate,
         
         
     }*/
-    
 }
+
+
 

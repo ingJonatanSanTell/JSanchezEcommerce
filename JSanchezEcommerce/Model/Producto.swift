@@ -17,7 +17,7 @@ struct Producto{
     var Departamento : Departamento?
     var Imagen : String
     
-    init(IdProducto: Int, Nombre: String, PrecioUnitario: Double, Stock: Int, Descripcion: String, Proveedor: Proveedor? = nil, Departamento: Departamento? = nil, Imagen: String) {
+    init(IdProducto: Int, Nombre: String, PrecioUnitario: Double, Stock: Int, Descripcion: String, Proveedor: Proveedor? = nil, Departamento: Departamento? = nil, Imagen: String, productos: [Producto]) {
         self.IdProducto = IdProducto
         self.Nombre = Nombre
         self.PrecioUnitario = PrecioUnitario
@@ -29,6 +29,7 @@ struct Producto{
     }
     
     init(){
+        
         self.IdProducto = 0
         self.Nombre = ""
         self.PrecioUnitario = 0.0
@@ -37,5 +38,7 @@ struct Producto{
         self.Proveedor = nil
         self.Departamento = nil
         self.Imagen = ""
+        
     }
 }
+

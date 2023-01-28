@@ -23,6 +23,7 @@ class RegistroViewController: UIViewController {
     }
     
 
+
     @IBAction func RegistrarButton(_ sender: UIButton) {
         
         if let email = EmailLabel.text, let password = PasswordLabel.text{

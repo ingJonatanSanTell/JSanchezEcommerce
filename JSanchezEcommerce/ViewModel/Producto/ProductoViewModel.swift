@@ -213,8 +213,8 @@ class ProductoViewModel{
                     else{
                         producto.Imagen = ""
                     }
-                    
                     result.Object = producto
+                    result.Objects?.append(producto)
                 }
                 result.Correct = true
             }
