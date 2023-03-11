@@ -21,6 +21,8 @@ class VentaFinalViewController: UIViewController {
     
     let ventaProductoViewModel = VentaProductosViewModel()
     
+    let ventaFinalViewModel = VentaFinalViewModel()
+    
     let metodoPagoViewModel = MetodoPagoViewModel()
     
     override func viewDidLoad() {
@@ -70,7 +72,32 @@ class VentaFinalViewController: UIViewController {
 
     @IBAction func FinalizarCompraButton(_ sender: UIButton) {
         
+        let index = IndexPath(row: sender.tag, section: 0)
+        sender.backgroundColor = UIColor.red
         
+        //AGREGAR EL ID A LA TABLA CARRITO(VENTAPRODUCTO)
+        if ventaFinalViewModel.Add(venta: Venta(IdVenta: 0, Total: subTotal, Fecha: "", IdUsuario: 1, MetodoPago: MetodoPago(IdMetodoPago: idMeotodoPago, Metodo: ""))).Correct {
+            
+            //eliminar carrito
+            
+            
+            //alert
+            let alertController  = UIAlertController(title: "CORRECTO", message: "SE FINALIZO LA COMPRA", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+            
+            //CantidadProductoField.text = ""
+        }
+        else{
+            //alert error
+            let alertController  = UIAlertController(title: "ERROR", message: "No se pudo agregar el producto a tu carrito", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+
     }
     
     

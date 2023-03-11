@@ -142,4 +142,29 @@ class VentaProductosViewModel {
         }
         return exiatencia
     }
+    
+    
+    //delete productos carrito
+    func DeleteCarrito(idProducto : Int) -> Result {
+        var result = Result()
+        
+        do{
+            
+            let context = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "VentaProducto")
+            let producto = try context.fetch(request) as! [NSManagedObject]
+            
+            context.delete(producto[idProducto])
+            try context.save()
+            result.Correct = true
+            
+        }catch let error{
+            result.Correct = false
+            result.Ex = error
+            result.ErrorMessage = error.localizedDescription
+            
+        }
+        
+        return result
+    }
 }

@@ -79,6 +79,7 @@ class GetALLTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTableViewCell
         
         cell.delegate = self
+        
         cell.NombreLabel.text = productos[indexPath.row].Nombre
         cell.PrecioUnitarioLabel.text = String(productos[indexPath.row].PrecioUnitario)
         cell.StockLabel.text = String(productos[indexPath.row].Stock)
@@ -146,11 +147,10 @@ class GetALLTableViewController: UITableViewController {
 
 
 extension GetALLTableViewController : SwipeTableViewCellDelegate{
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> [SwipeCellKit.SwipeAction]? {
      
-        
         if orientation == .right {
-            
             //delete
             let deleteAction = SwipeAction(style: .destructive, title: "DELETE") { action, indexPath in
                 
@@ -166,7 +166,6 @@ extension GetALLTableViewController : SwipeTableViewCellDelegate{
                     alert.addAction(ok)
                     
                     self.present(alert, animated: false)
-                    
                 }
                 else{
                     let alertError  = UIAlertController(title: "ERROR", message: "PRODUCTO NO ELIMINADO", preferredStyle: .alert)
@@ -180,7 +179,6 @@ extension GetALLTableViewController : SwipeTableViewCellDelegate{
             }
             deleteAction.image = UIImage(systemName: "trash")
             return [deleteAction]
-            
             
         }else{
             

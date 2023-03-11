@@ -34,6 +34,7 @@ final class JSanchezEcommerceTests: XCTestCase {
         let departamentoViewModel = DepartamentoViewModel()
         let result = departamentoViewModel.Update(departamento: Departamento(IdDepartamento: 1, Nombre: "test", Area: Area(IdArea: 1, Nombre: "")))
         XCTAssertTrue(result.Correct, result.ErrorMessage)
+        
     }
     
     func testDepartamentoGetAll() throws {
